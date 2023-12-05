@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: Chapter1/chapter1.aux
+The style file: plain.bst
+Database file #1: Bibliography/bibliography.bib
+Warning--to sort, need author or key in GNUMake
+Warning--to sort, need author or key in freeRTOS
+Warning--to sort, need author or key in embedded_linux_windriver
+Warning--to sort, need author or key in linux_embedded_ubuntu
+Warning--to sort, need author or key in linux_real_time
+Warning--to sort, need author or key in yocto
+Warning--empty publisher in embedded_systems_architecture
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            531 strings with 4679 characters,
+and the built_in function-call counts, 1429 in all, are:
+= -- 133
+> -- 20
+< -- 0
++ -- 12
+- -- 4
+* -- 56
+:= -- 192
+add.period$ -- 18
+call.type$ -- 8
+change.case$ -- 24
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 66
+empty$ -- 183
+format.name$ -- 4
+if$ -- 338
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 4
+newline$ -- 37
+num.names$ -- 4
+pop$ -- 65
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 54
+stack$ -- 0
+substring$ -- 40
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 7
+while$ -- 4
+width$ -- 9
+write$ -- 69
+(There were 7 warnings)

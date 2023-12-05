@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{linux_real_time}
+Real time linux.
+\newblock \url{https://www.embedded.com/real-time-linux/}, 2001.
+
+\bibitem{linux_embedded_ubuntu}
+Embedded linux ubuntu.
+\newblock \url{https://ubuntu.com/blog/what-is-embedded-linux}, 2019.
+
+\bibitem{embedded_linux_windriver}
+Embedded linux windriver.
+\newblock \url{https://www.windriver.com/solutions/learning/embedded-linux},
+  2020.
+
+\bibitem{freeRTOS}
+freertos site.
+\newblock \url{https://www.freertos.org/about-RTOS.html}, 2023.
+
+\bibitem{GNUMake}
+Gnu make site.
+\newblock \url{https://www.gnu.org/software/make/}, 2023.
+
+\bibitem{yocto}
+Yocto project.
+\newblock \url{https://www.yoctoproject.org/}, 2023.
+
+\bibitem{abbott2011linux}
+Doug Abbott.
+\newblock {\em Linux for embedded and real-time applications}.
+\newblock Elsevier, 2011.
+
+\bibitem{embedded_systems_architecture}
+Someone.
+\newblock {\em Embedded systems architecture}.
+\newblock 2006.
+
+\end{thebibliography}
