@@ -17,3 +17,11 @@
 \contentsline {subsection}{\numberline {1.4.2}Linux Embedded Systems}{11}{}%
 \contentsline {subsubsection}{Linux Embedded Real Time}{13}{}%
 \contentsline {subsubsection}{Yocto}{13}{}%
+\contentsline {chapter}{\numberline {2}Board Characteristics}{16}{}%
+\contentsline {section}{\numberline {2.1}Board Selection}{16}{}%
+\contentsline {section}{\numberline {2.2}Introduction to AM64x}{16}{}%
+\contentsline {subsection}{\numberline {2.2.1}A53 Subsystem}{18}{}%
+\contentsline {subsection}{\numberline {2.2.2}R5F Subsystem}{19}{}%
+\contentsline {subsection}{\numberline {2.2.3}M4F Subsystem}{21}{}%
+\contentsline {subsection}{\numberline {2.2.4}PRU-ICSSG}{21}{}%
+\contentsline {section}{\numberline {2.3}Inter Processor Communication}{21}{}%

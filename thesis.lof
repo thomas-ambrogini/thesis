@@ -6,3 +6,8 @@
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Embedded Linux Architecture}}{12}{}%
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Architecture of Real Time Linux}}{14}{}%
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Yocto Stack}}{15}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces AM64x architecture}}{17}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Cortex-A53 MPCore architecture with 4 cores}}{19}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces A53SS Block Diagram}}{20}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces R5FSS Block Diagram}}{21}{}%

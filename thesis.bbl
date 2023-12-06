@@ -1,17 +1,29 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{linux_real_time}
 Real time linux.
 \newblock \url{https://www.embedded.com/real-time-linux/}, 2001.
 
+\bibitem{ARM_M4}
+Arm m4 specifications.
+\newblock \url{https://developer.arm.com/Processors/Cortex-M4}, 2014.
+
 \bibitem{linux_embedded_ubuntu}
 Embedded linux ubuntu.
 \newblock \url{https://ubuntu.com/blog/what-is-embedded-linux}, 2019.
+
+\bibitem{Technical_reference_AM64}
+Am64x technical reference manual.
+\newblock \url{https://www.ti.com/lit/ug/spruim2h/spruim2h.pdf}, 2020.
 
 \bibitem{embedded_linux_windriver}
 Embedded linux windriver.
 \newblock \url{https://www.windriver.com/solutions/learning/embedded-linux},
   2020.
+
+\bibitem{AM64_datasheet}
+Am64x datasheet.
+\newblock \url{https://www.ti.com/lit/ds/symlink/am6412.pdf}, 2023.
 
 \bibitem{freeRTOS}
 freertos site.
@@ -31,8 +43,8 @@ Doug Abbott.
 \newblock Elsevier, 2011.
 
 \bibitem{embedded_systems_architecture}
-Someone.
+Daniele Lacamera.
 \newblock {\em Embedded systems architecture}.
-\newblock 2006.
+\newblock 2023.
 
 \end{thebibliography}

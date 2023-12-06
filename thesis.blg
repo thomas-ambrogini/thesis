@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
 A level-1 auxiliary file: Chapter1/chapter1.aux
+A level-1 auxiliary file: Chapter2/chapter2.aux
 The style file: plain.bst
 Database file #1: Bibliography/bibliography.bib
 Warning--to sort, need author or key in GNUMake
@@ -10,46 +11,49 @@ Warning--to sort, need author or key in embedded_linux_windriver
 Warning--to sort, need author or key in linux_embedded_ubuntu
 Warning--to sort, need author or key in linux_real_time
 Warning--to sort, need author or key in yocto
+Warning--to sort, need author or key in AM64_datasheet
+Warning--to sort, need author or key in ARM_M4
+Warning--to sort, need author or key in Technical_reference_AM64
 Warning--empty publisher in embedded_systems_architecture
-You've used 8 entries,
+You've used 11 entries,
             2118 wiz_defined-function locations,
-            531 strings with 4679 characters,
-and the built_in function-call counts, 1429 in all, are:
-= -- 133
-> -- 20
+            544 strings with 5020 characters,
+and the built_in function-call counts, 1920 in all, are:
+= -- 181
+> -- 23
 < -- 0
-+ -- 12
++ -- 15
 - -- 4
-* -- 56
-:= -- 192
-add.period$ -- 18
-call.type$ -- 8
-change.case$ -- 24
+* -- 74
+:= -- 248
+add.period$ -- 24
+call.type$ -- 11
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 66
-empty$ -- 183
+cite$ -- 21
+duplicate$ -- 87
+empty$ -- 252
 format.name$ -- 4
-if$ -- 338
+if$ -- 461
 int.to.chr$ -- 0
-int.to.str$ -- 8
+int.to.str$ -- 11
 missing$ -- 4
-newline$ -- 37
+newline$ -- 49
 num.names$ -- 4
-pop$ -- 65
+pop$ -- 89
 preamble$ -- 1
-purify$ -- 18
+purify$ -- 24
 quote$ -- 0
-skip$ -- 54
+skip$ -- 74
 stack$ -- 0
-substring$ -- 40
-swap$ -- 8
+substring$ -- 55
+swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 7
+type$ -- 40
+warning$ -- 10
 while$ -- 4
-width$ -- 9
-write$ -- 69
-(There were 7 warnings)
+width$ -- 13
+write$ -- 93
+(There were 10 warnings)
