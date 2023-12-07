@@ -150,7 +150,7 @@ data.
 To enable fast memory access the R5F has two tightly-coupled memories (TCMs),
 which are low latency, tightly integrated memories that can be used for
 instructions or data. The total TCM available for each core is of 32KB.
-It has the same performance of accessing data instructions or data in cache.
+It has similar performance to accessing instructions or data in cache.
 \cite{Technical_reference_AM64}
 
 One of the most important features of the TCMs is the possibility to be
@@ -158,6 +158,12 @@ accessed from external sources. This makes possbile to preload data in the
 memory, such as instructions before they are needed from the core.
 It is also possible to process data and save it on the TCMs, and external
 sources can directly access the data, without communicating with the core.
+
+The TCM can be used to hold time-critical routines, such as interrupt
+handling routines or real-time tasks where the indeterminacy of a cache is
+undesirable. In addition, you can use it to hold ordinary variables, data types
+whose locality properties are not well suited to caching, and critical data
+strutures such as interrupt stacks. \cite{TCM_documentation}
 
 The subsystem can operate in one of two modes: split or single-core mode, which
 has to be decided during bootstrap.
@@ -171,10 +177,331 @@ processed.
 
 \subsection{M4F Subsystem}
 
+The last core of the system is an Arm Cortex-M4F running safety processing.
+Similar to the R5F, also the M4F has the extension for floating point unit.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{M4FSS_diagram.png}
+    \caption{M4FSS Block Diagram}
+\end{figure}
+
+The Cortex-M4F processor is a low-power processor that features low gate count,
+low interrupt latency, and low-cost debug. This processor is intended for
+deeply embedded applications that require fast interrupt response features.
+\cite{M4F_technical_reference}
+The processor delivers exceptional power efficiency through an efficient
+instruction set and extensively optimized design. The M4 processor implements
+a version of the Thumb instruction set based on Thumb-2 technology, ensuring
+high code density and reduced program memory requirements.
+
+The M4FSS has a total of 256Kb of SRAM divided into two banks: 192KB of I-RAM,
+and 64KB of D-RAM. The I-RAM meory is intended mainly for M4F's instruction
+code, and D-RAM for M4F's data. The M4F allows concurrent fetch for instruction
+code and data via dedicated buses.
+The M4FSS supports unified memory for both banks, which means that instruction
+code and data can be placed in any bank, although, it is recommended that
+the data saved is the intended one for efficiency purposes.
+
+The RAM also has Error-correcting code (ECC), which is used to detect and
+correct data corruption which occurs in memory.
+To enhance safety, the core also has a Memory Protection Unit (MPU), giving
+the possibility to privileged software to define memory regions and assign
+memory access permission and attributes to each of them.
+
+The M4FSS incorporates a dedicated local reset input. This makes possible to
+preload code in the M4F RAM and then release the reset, in this way the
+processor will have the instructions it needs when it starts.
+
+During the boot sequence, another processor will start the M4F, from that point
+onward the M4F will be isolated form other cores, running safety processing.
+This isolation from other cores on the board is important to maintain a highly
+secure and predictable compuational environment, essential for safety-critical
+applications.
 
 \subsection{PRU-ICSSG}
 
+Industrial communication within Sitara proessors and microcontrollers is
+efficiently managed by the Programmable Real-Time Unit Industral Communication
+Subsystem (PRU-ICSS). The PRU-ICSS is a co-processor subsystem that houses the
+PRU cores and Ethernet media access controllers (EMACs), responsible for
+executing low-level industrial Ethernet and fieldbus protocols via firmware.
+Higher-level protocol stack components are implemented in software running on
+the Arm cores.
+
+PRU cores are mainly dedicated to industrial communication but can be harnessed
+for other custom applications, freeing the main Arm cores for more general
+control and data processing.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{PRUICSSG_architecture.png}
+    \caption{PRUICSSG Architecture}
+\end{figure}
+
+
+PRU-ICSSG represent the next generation of PRU-ICSS, builiding on the
+capabilities introduced in the predecessor (PRU-ICCS).
+At its core, each PRU-ICSSG has 4 32-bit RISC cores:
+
+\begin{enumerate}
+    \item 2 PRU cores
+    \item 2 Auxiliary Programmable Real-Time Units known as RTU-PRUs
+\end{enumerate}
+
+
+A notable enhancement in the PRU-ICSSG, compared to its predecessor, is the
+inclusion of internal accelerators. These accelerators play a crucial role in
+data processing and movement, contributing to the achievement of both real-time
+and Gigabit-level speeds.
+
+\subsubsection{PRU-ICSSG Cores}
+
+PRUs, or Programmable Real-Time Units, are specialized processing units
+embedded in the Sitara family of microcontrollers. PRUs are designed for
+real-time applications that require low-latency and deterministic performance.
+They offer a dual-core architecture, with high programmability, enabling custom
+firmware to be executed in real time. PRUs are especially suitable for tasks
+such as industrial conrol, motor control, communication interfaces, and custom
+I/O control. They provide low-latency, direct access to processor pins, making
+them efficient for interfacing with external devices. PRUs can be used
+alongside the main ARM CPU, sharing resources as needed.
+
+Within the subsystem there are two type of cores: PRUs and RTUs. The key
+distinction between them lies in their I/O access. PRUs are versatile,
+capable of I/O control and data processing, while RTUs are exclusively
+designated for data processing. Both, however, share access to PRU\_ICSSG and
+SoC resources.
+
+The PRU-ICSSG is divided in two symmetrical slices. Each of them containing
+one PRU core and one RTU\_PRU core.
+The content within each slice is only accessible to the PRU and RTU cores
+within that slice, whereas content outside the slices can be accessed by any
+core.
+Each core has its dedicated instructions and broadside RAM, along with a RAM
+dedicated to each slice, shared by the cores belonging to that slice.
+
+Each core can operate independently or in coordination with ARM cores or other
+PRU/RTU cores.
+
+PRU cores are designed as non-pipelined, single-cycle execution engines. This
+means that all instructoins, except for memory reads and writes, are completed
+within a signle cycle. As there is no pipelining, PRU cores offer full
+determinism, ensuring that instructions are not rearranged during execution.
+
+\section{Memory Map Layout}
+
+The memory map of an embedded device provides a layout of the memory space,
+indicating how different types of memory are organized and used within the
+device.
+
+The two most important types in the AM64x are: MSRAM and DDR memory layout.
+
+\subsubsection{MSRAM}
+
+MSRAM, or SRAM (Static Random-Access Memory), stands out of rits high speed,
+low power consumption when idle, reliability, and lack of a need for data
+refreshing. However, it's relatively expensive and offers lower storage
+densite compared to DDR SDRAM.
+
+The AM64x SoC offers a total of 2MB of MSRAM, divided into eight individual
+banks, each with a size of 256KB.
+
+Each of the four R5s cores has access to dedicated 256 KB private bank for
+exclusive use, providing isolation and dedicated memory space for each core.
+
+In addition to core-specific banks, there are shared banks accessible by all
+cores, facilitating inter-core communication, shared data storage, and support
+for applications requiring more memory than their private banks can offer.
+Shared banks play an important role in enabling communication and data sharing
+between different cores within the SoC, providing collaborative processing
+capabilities.
+
+This memory layout offers flexibility for applications. When using only one
+core, applications can utilize the private banks reserved for other cores as
+needed.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{MSRAM_layout.png}
+    \caption{MSRAM layout}
+\end{figure}
+
+The first 512 KB of MSRAM is set aside for a specific purpose, it's reserved
+for the System Bootloader (SBL). The SBL is responsible for initializing the
+system, and it contains essential elements such as the System Controller
+Firmware (SYSFW) and SYSFW Board Configuration data.
+
+The reason this memory is reserved is to create a dedicated space for the
+combined bootloader image. This image ensures that SYSFW is properly loaded
+into the DMSC Cortex M3 processor. Any attempt to modify or use tihs reserved
+memory for other purposes in the linker file should be avoided. If the
+reserved area is accidentally overlapped with an application's memory space,
+it can lead to problems during the boot process.
+Specifically, during the boot process, the SBL loads the core image, and if the
+reserved memory is not respected, there's a risk of overwriting the SBL itself.
+This could result in a malfunctioning or unstable system. To prevent such
+issues, the SBL has built-in checks that will flag an error if it detects any
+section of an application falling within the reserved memory region. These
+checks are in place to ensure the system's integrity and reliable boot-up.
+
+\subsubsection{DDR}
+
+DDR is known for its high data throughput, cost-effectiveness, synchrnous
+operation with the system clock, and data transfer on both edges of the clock
+signal. This double data rate transfer significantly increases bandwidth and
+is ideal for memory-intensive applications. DDR SDRAM also provides greater
+memory density compared to MSRAM.
+
+The layout of the DDR differs, depending on which Operating System is running
+on the cores.
+
+If embedded Linux is running on the A53 core, the DDR has divided in sections,
+one for every core, which has to be used in the RTOS application.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{DDR_linux.png}
+    \caption{DDR layout with linux running on A53 core}
+\end{figure}
+
+If RTOS or a baremetal application is running on the A53 core, the application
+has to be loaded in DDR to boot.
+The DDR is not allocated in this case, and it can be used by the all the cores,
+specifying it in the linker file.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{DDR_without_linux.png}
+    \caption{DDR layout with RTOS or baremetal application on A53 core}
+\end{figure}
+
+\section{Networking}
+
+Advances in the embedded systems have lead to new functionalities to be
+required. The ability to communicate over the internet with other devices.
+
+Networking is a broad term used to cover Ethernet (IEEE 802.3), EtherCAT
+Profinet and other ethernet-like communication protocols used in industrial,
+automative and other general use cases.
+
+Networking is supported using the following hardware peripherals:
+
+\begin{itemize}
+    \item   Common Port Switch (CPSW): CPSW subsystem provides IEEE 802.3
+            standard Ethernet gigabit speed packet communication for the
+            device and can also be configured as an Ethernet switch.
+            CPSW supports RGMII and RMII interfaces.
+    
+    \item   PRU-ICSSG: PRU-ICSSG is firmware programmable and can take on
+            various personalities like Industrial Communication Protocol Switch
+            (for protocols like EtherCAT, Profine, EtherNet/IP), Ethernet
+            Switch, Ethernet MAC, Industrial Drives, etc. PRU-ICSSG supports
+            RGMII and MII modes.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{networking_software_architecture.png}
+    \caption{Networking Software Stack}
+\end{figure}
 
 \section{Inter Processor Communication}
 
+Inter-Processor Communication (IPC) is a fundamental aspect of multi-core
+systems like the AM64x SoC. In such systems, multiple CPUs or processor cores
+works together to achieve specific tasks or run various applications.
+These cores may need to communicate and share daa with each other to realize a
+larger system-level application or to coordinate their activities.
+IPC mechanisms facilitate this communication.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{IPC.png}
+    \caption{IPC mechanisms}
+\end{figure}
+
+There are two IPC mechanisms to realize communication between real-time cores:
+
+\begin{enumerate}
+    \item   IPC Notify
+    \item   RPMessage
+\end{enumerate}
+
+Developers can leverage IPC Notify alongside RPMessage, to fine-tune their
+applications based on their specific needs and requirements.
+
+\subsection{IPC Notify}
+
+IPC Notify defines APIs for enabling low-latency inter-processor communication
+between different CPU cores. These APIs prioritize speed and efficiency and are
+therefore contrained in terms of features.
+
+To achieve low latency, the underlying implementation employs hardware
+mechanisms to interrupt the receiving CPU cores. Additionaly, it utilizes
+hardware FIFOs when available, and in cases where hardware FIFOs aren't
+present, it resorts to using software FIFOs based on fast internal RAM to
+transport message values.
+
+In the case of AM64x, IPC notify utilizes hardware mailbox-based hardware FIFOs
+to transport messages and interrpt the receiving CPU core.
+This approach ensure that messages are exchangesd with minimal delay and high
+efficiency, making it suitable for scenarios where speed is a primary
+consideration.
+
+The first limitation to have all the advantages offered by IPC notify is the
+size of the message: IPC Notify combines the message content and client ID into
+a single 32-bit value, limiting the content of the message to less than a byte.
+
+\subsection{RPMessage}
+
+RPMessage, or Remote Processor Message, is a communication method that enables
+CPUs to exchange messages in the form of packet buffers. These messages are
+directed to specific logical endpoints on another CPU, facilitating efficient
+inter-processor communication.
+
+RPMessage exploits shared memory between cores to exchange the messages.
+The sender places a packet in a buffer inside the shared memory. After that,
+it has to notify the receiving core that there is a new message to process.
+This notification is done using a hardware interrupt mechanism, similar to
+IPC Notify.
+
+In contrary with IPC Notify, RPMessage allows for variable packet sizes.
+When both ends are using real-time opearting systems, the minimum packet size
+is 4 bytes, but it can be configured by the developer to use bigger sizes,
+although 512 bytes should be taken as upper limit.
+If Linux is involved in the communication the size of the packet is fixed to
+512 bytes, configured in the Linux kernel.
+
+Every core can establish multiple logical endpoints, where the message can be
+delivered to, allowing for multiple communication channels between CPUs.
+
+\subsection{Linux IPC}
+
+The RPMsg char driver serves as an interace for user-space processes to
+access RPMsg endpoints. These endpoints are used for communication between
+different applications and can be uniquely accessed by requesting specific
+interactions with the remote service. What's important to note is that the
+RPMsg char driver supports the creation of multiple endpoints for each RPMsg
+char devicce that has been initialized. This means that a single RPMsg char
+device can be used for different instances or applications.
+
+When these endpoints are created, they appear as individual character devices
+within the /dev directory. Underlying this setup, the RPMsg bus operates on top
+of the VirtIO bus. Each time a VirtIO name service announcement message is
+sent, a new RPMsg device is generated, and it's intended to be bound to an
+RPMsg driver. These RPMsg devices are dynamically generated, initiated by an
+announcement message from the remote processor. This message contains
+information about the service's name, source, and destination addresses.
+
+The handling of this announcement message is the responsability of the
+RPMsg bus, which dynamically creates and registers an RPMsg device that
+represents the remote service. Once a relevant RPMsg driver is registered, it
+is immediately probed by the bus, and this allows both sides to begin
+exchanging messages.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{RPMsg_stack.png}
+    \caption{RPMsg library stack}
+\end{figure}
