@@ -505,3 +505,257 @@ exchanging messages.
     \includegraphics[width=0.8\textwidth]{RPMsg_stack.png}
     \caption{RPMsg library stack}
 \end{figure}
+
+\subsection{PRU IPC}
+
+Given that PRUs can can offload tasks from the primary cores, establishing 
+communication between the PRU cores and the ARM cores becomes essential.
+
+PRU IPC module provides APIs for communicating with the PRU cores with low
+latency. The communication is done in the form of blocks of data transfer in
+one exchange. Options are available for configuring multiple buffers and blocks
+per buffer.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{IPC_PRU.png}
+    \caption{PRU IPC}
+\end{figure}
+
+PRU write to the shared memory and creates an interrupt even once a certain
+number of samples, which are equal to the block size, have been written into
+IPC Shared Memory.
+The PRU writes one block of data for all the buffers at a time, and then moves
+on to the buffer after that.
+
+After writing the block of data, the PRU sends an interrupt to the destination
+of the message, which can read it from the shared memory.
+
+\subsubsection{Communication between Linux and PRUs}
+
+There are two vrings provided per PRU core, one vring is used of rmessages
+passed to the Linux core and other one is used for receiving messages.
+System level mailboxes are used to notify cores (ARM or PRU) when new messages
+are waiting in the shared buffers.
+
+On the ARM Linux side, RPMsg messages are received in kernel space.
+An interface module is provided (rpmsg\_pru) that creates a character device in
+user space so that users can perform operations (read or write) on a character
+device in the file system to communicate with PRU cores.
+
+On the PRU side, an RPMsg library is provided in the Software Support Package
+that aims to abstract the communication, providing developers with send/receive
+APIs for simple communication with other cores.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{IPC_linux_PRU_components.png}
+    \caption{Components for Linux and PRU IPC}
+\end{figure}
+
+\subsubsection{ARM to PRU}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{IPC_linux_ARM_to_PRU.png}
+    \caption{Steps needed to send a message from the ARM core to the PRU}
+\end{figure}
+
+Steps for the ARM core:
+
+\begin{enumerate}
+    \item   Allocate or Retrieve Buffer: the ARM host starts by either
+            allocating or acquiring a used buffer from the slave Vring.
+    \item   Data copy: the data to be transferred is copied into the chosen
+            buffer.
+    \item   Add to Available List: The filled buffer is then added to the
+            available list in the slave Vring.
+    \item   Notify the PRU: to signal the PRU, the ARM host kicks the slave
+            Vring by sending its index via a message in Mailbox 2.
+\end{enumerate}
+
+Steps for the PRU core:
+
+\begin{enumerate}
+    \item   Detect Kick: The PRU monitors Mailbox 2 for a kick with the index
+            of the relevant Vring, indicating that data is ready for reception.
+    \item   Retrieve Available Buffer: the PRU obtains the available buffer
+            from the slave Vring.
+    \item   Data extraction: the data to be received is copied from the buffer
+            in the previous step.
+    \item   Add to Used List: the now empty buffer is added to the used list
+            in the slave Vring.
+    \item   Notify the ARM Host: to inform the ARM host about the completion,
+            the PRU kicks the slave Vring by writing its index into a message
+            in Mailbox 3.
+\end{enumerate}
+
+\subsubsection{PRU to ARM}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{IPC_linux_PRU_to_ARM.png}
+    \caption{Steps needed to send a message from the PRU to the ARM core}
+\end{figure}
+
+Steps for the PRU:
+
+\begin{enumerate}
+    \item   Retrieve Available Buffer: the PRU starts by obtaining an
+            available buffer from the host Vring.
+    \item   Data copy: the data to be transferred is copied into the buffer 
+            of the previous step.
+    \item   Add to Used List: The filled buffer is then added to the
+            used list in the host Vring.
+    \item   Notify the ARM: to signal the ARM host, the PRU kicks the host 
+            Vring by writing its index into a message in Mailbox 3.
+\end{enumerate}
+
+Stesp for the ARM host:
+
+\begin{enumerate}
+    \item   Kicked Vring Detection: an interrupt is triggered, signaling that
+            Mailbox 3 was kicked with the index of the host Vring.
+            This notifies the ARM host that data is available for reception.
+            of the relevant Vring, indicating that data is ready for reception.
+    \item   Retrieve Used Buffer: the ARM host retrieves the used buffer
+            from the host Vring.
+    \item   Data extraction: the data to be received is copied from the buffer
+            acquired in the previous step.
+    \item   Add to Available List: the now empty buffer is added to the
+            available list in the slave Vring.
+    \item   Notify the PRU: to inform the PRU about the completion,
+            the ARM host kicks the host Vring by writing its index into a
+            message in Mailbox 2.
+\end{enumerate}
+
+\section{System boot}
+
+The boot process is a complex process in the AM64x, since it has different
+heterogeneous processors.
+
+\subsection{Boot without Linux}
+
+The bootflow, in case the A53 is not running Linux, consists of two main steps
+that occur when the device is powered on:
+
+\begin{enumerate}
+    \item   ROM boot
+    \item   SBL boot
+\end{enumerate}
+
+In the ROM boot step, a built-in component of microcontroller hardware, called
+ROM bootloader, takes control. Its primary responsibility is to initiate the
+next-stage bootloader, the SBL.
+The ROM bootloader is generally kept in secure, read-olny memory to ensure its
+integrity and security, working as root of trust for the rest of the operations.
+
+After the ROM bootloader, the SBL takes control which is typically more
+versatile and configurable than the ROM bootloader.
+Te SBL is responsible for orchestrating the boot process of the actual
+application.
+It can perform complex bootloading tasks, including initializing different
+processor cores and managing the loading and execution of the application
+software. It may also handle the parsing and loading of the application image
+into the appropriate memory locations and take care of other initialization
+tasks required for the application to run successfully.
+
+\subsubsection{ROM code}
+
+The device has two ROM codes operating in tandem: the public ROM code and the
+DMSC ROM code.
+
+The ROM code can either be received via an inteface and saved into internal
+memory or taken from non-volatile memory and stored into internal memory.
+
+During initialization, the ROM code configures the device resources (PLLs,
+peripherals, pin) as needed to support the boot process. The resources used
+depend on the boot mode requirements.
+
+During the boot process the boot image can be loaded into the devcice memory
+and executed, or executed in place, depending on the boot peripheral.
+DMSC will perform code verification and allow, or forbid, the image execution.
+
+\subsubsection{Boot Process flow}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{boot_process_flow.png}
+    \caption{Flow of the boot process}
+\end{figure}
+
+In the boot process, the DMSC works as the boot controller for the public ROM.
+It takes care of essential configurations and releases the reset for R5's CPU.
+The R5 core checks the boot mode pins and sets up the necessary peripheral
+interface to access a boot image. After conducting a cursory image check, the
+verified boot image is handed over to the DMSC.
+
+The DMSC ROM then takes over, performing code verification and routing the boot
+image to the on-chip RAM. Following this, the R5 core transitions into an idle
+state. DMSC ROM code asserts a reset ot the MCU, redirects the boot vector to
+the freshly loaded image, and releases the reset, thereby initiaing a restart
+of R5. This restart occurs with the Public ROM code fully disconnected.
+
+Finally, the execution of the Public ROM code is triggered after a cold or warm
+reset, marking the completion of the boot process.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{boot_sbl_flow.png}
+    \caption{Steps done by the SBL}
+\end{figure}
+
+Upon the reset of R5 and the initiation of SBL execution, the DMSC ROM performs
+a restart of the RTI (Real-Time Interrupt) watchdog timer, extending the
+timeout for an additional 180 seconds.
+During this time, it becomes imperative for SBL to load the DMSC firmware
+provided by Texas Instruments; failure to do so may result in a preemptive MCU
+reset, serving as a protective measure against potential software misbehavior.
+
+One of the primary responsibilities of SBL is to load the DMSC firmware.
+Only after successfully executing this task can SBL proceed to load the images
+for other processors and request a reset release from the DMSC firmware for
+those cores.
+
+\subsection{DMSC}
+
+The DMSC performs the following functions:
+
+\begin{itemize}
+    \item   Device Management
+    \item   Configuration of boot vectors and control of the reset release
+            of the R5 core
+    \item   IPC configuration via main DMSS rings and Secure Proxy
+    \item   PLL configuration (R5 and SA2UL)
+    \item   X509 certificate parsing
+    \item   SA2UL configuration to SHA512 for image integrity checks
+    \item   DMSC fimware loading
+\end{itemize}
+
+\subsubsection{SYSFW}
+
+In the case of AM64X the firmware loaded by the DMSC is the System Controller
+Firmware (SYSFW). It acts as a centralized server for the SoC. The services it
+provides are:
+
+\begin{itemize}
+    \item   Resource Management: SYSFW manages system resources, ensuring that
+            various hardware components and resources are allocated, accessed,
+            and controlled efficiently. This includes tasks such as configuring
+            and managing peripherals, memory regions, and interconnects. It is
+            essential to avid conflicts between different components of the SoC.
+    \item   Power Management: SYSFW is responsible for controlling the power
+            states of different parts of the SoC. It manages power modes and
+            transitions, ensuring that the SoC operates in power-efficient
+            states when possible.
+    \item   Security: SYSFW enforces security policies, handling secure boot
+            processes, and managing cryptographic functions to protect the
+            system from unuathorized access or tampering. It may be involved in
+            setting up and managing hardware security features.
+\end{itemize}
+
+Given the importance of the task performed by the SYSFW, it needs to be loaded
+and executed before the Secondary Bootloader (SBL) or any other part of the
+system can perform their tasks effectively.
+
+\subsection{Linux boot}

@@ -233,6 +233,47 @@ Bootloaders are also important in ensuring security. They often
 serve as the starting point for establishing a Hardware Root-of-trust, which
 forms the foundation for securing the entire system.
 
+\subsection{Boot steps}
+
+There are several steps that has to be followed for the boot process in an
+embedded system.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{boot_steps.png}
+    \caption{Steps needed for the system boot}
+\end{figure}
+
+\begin{enumerate}
+    \item   Preinitialization: before the actual boot process begins, certain
+            conditions must be met. Power, clock signals, and control
+            connections need to be established. Additionaly, boot configuration
+            pins should be set to their desired logical levels to configure
+            the system's behavior.
+    \item   Power, Clock, adn Reset Ramp Sequence: the power-management chip
+            typically govern the applicaton of a specific sequence for powering
+            up the system. This sequence ensures that the system components are
+            brought ot life in the correct order and that power and clock
+            sources stabilize gradually.
+    \item   ROM Code: responsible for finding, for downloading, and for
+            executing the intial software (SBL).
+    \item   Initial Software (Secondary Bootloader - SBL): software that loads,
+            prepares, and passes control to application software or the
+            high-level operating system (HLOS).
+    \item   High-Level Operating System or Bare-Metal Application: the final
+            stage of the boot process involves the execution of the high-level
+            opearting system or a bare-metal application. This is the primary
+            software that runs on the main processor of the system. In case of
+            an operating system, it provides a platform for running
+            applications. In a bare-metal system, it typically includes the
+            main application code that performs specific tasks or functions.
+\end{enumerate}
+
+The initial steps of the device initialization process focus on hardware setup,
+but they involve configuring system interface pins with software-configurable
+functionality. This configuration is an essential part of the chip
+configuration and is application dependent.
+
 \subsection{Multi-stage Bootloader}
 
 In advanced SoCs, it's not uncommon for the bootloader to load another
