@@ -632,7 +632,9 @@ Stesp for the ARM host:
 \section{System boot}
 
 The boot process is a complex process in the AM64x, since it has different
-heterogeneous processors.
+heterogeneous processors. An additional core, a Cortex-M3, is reserved for the
+booting process and other management functions. This core is also called
+Device Management and Security Controller (DMSC).
 
 \subsection{Boot without Linux}
 
@@ -660,21 +662,55 @@ software. It may also handle the parsing and loading of the application image
 into the appropriate memory locations and take care of other initialization
 tasks required for the application to run successfully.
 
-\subsubsection{ROM code}
+\subsubsection{Initial Boot Flow}
 
-The device has two ROM codes operating in tandem: the public ROM code and the
-DMSC ROM code.
+The initial boot flow is the first part of the boot process and it specifies
+how everything starts and how all the cores that belongs to the system are
+initialized and started.
 
-The ROM code can either be received via an inteface and saved into internal
-memory or taken from non-volatile memory and stored into internal memory.
+The core components to start the initial boot process are:
 
-During initialization, the ROM code configures the device resources (PLLs,
-peripherals, pin) as needed to support the boot process. The resources used
-depend on the boot mode requirements.
+\begin{enumerate}
+    \item   DMSC
+    \item   R5F core
+    \item   Boot pins
+\end{enumerate}
 
-During the boot process the boot image can be loaded into the devcice memory
-and executed, or executed in place, depending on the boot peripheral.
-DMSC will perform code verification and allow, or forbid, the image execution.
+The DMSC is a core dedicated for the central management of the device.
+\cite{Technical_reference_AM64}
+Upon powering the system, the DMSC is the first core that starts, executing 
+the first set of instructions on the AM64X device, through the DMSC ROM code.
+Subsequently, it will run the SYSFW code, which provides runtime functions that
+help the system to be configured and run correctly.
+
+The Cortex R5F acts as the boot controller of the system.
+It is the core which manages the rest of the boot flow on the device, after it
+has been released from reset by the DMSC. When it comes out of the reset, it
+executes the R5 ROM code, and eventually it will run the SBL.
+
+The boot pins are a set of pins in the board which specifies where the SBL
+image is located and how the peripheral storing it is configured. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{boot_initial_flow.png}
+    \caption{Initial boot flow of the SoC}
+\end{figure}
+
+The first thing after the Power On Reset (PORZ) is running the DMSC ROM, which
+in turn starts the R5F ROM code. The two of them will collaborate to realize
+the boot of the system.
+
+After that, the SBL is needed for the boot process. The SBL will be loaded in
+the R5 from the peripheral specified with the boot pins.
+Before loading it, the DMSC validates the image's integrity. 
+The R5 will find the image for the SYSFW, store it in its internal memory and
+the DMSC will check that the firmware is valid before storing in its internal
+memory and executing the code.
+
+The next stages of the boot process will be done by the R5, in conjunction with
+the services offered by the SYSFW. As the other cores start up, they will use
+SYSFW services to check and configure the rest of the device.
 
 \subsubsection{Boot Process flow}
 
@@ -732,8 +768,6 @@ The DMSC performs the following functions:
     \item   DMSC fimware loading
 \end{itemize}
 
-\subsubsection{SYSFW}
-
 In the case of AM64X the firmware loaded by the DMSC is the System Controller
 Firmware (SYSFW). It acts as a centralized server for the SoC. The services it
 provides are:
@@ -759,3 +793,47 @@ and executed before the Secondary Bootloader (SBL) or any other part of the
 system can perform their tasks effectively.
 
 \subsection{Linux boot}
+
+The initial boot flow is similar to the one presented before, even if Linux
+has to be run.
+The DMSC always runs the SYSFW and starts the booting process.
+The R5F will start loading all the images for the necessary components of the
+system: ATF, OPTEE, and A53 SPL, all coming from the boot media, specified
+through the boot pins.
+
+\begin{enumerate}
+    \item   ATF: ARM Trusted Firmware, is a software component that secures
+            booting, manages hardware, and establishes trusted environments
+            on Arm-based systems.
+    \item   OPTEE: establishes a secure environment on Arm-based systems for
+            running and managing trusted applications, ensuring isolation and
+            security from the normal system operations.
+    \item   A53 SPL: small piece of code or bootloader necessary for
+            initializing the system hardware, which will run on the A53 core.
+\end{enumerate}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{boot_linux_components.png}
+    \caption{Components needed for the boot of Linux}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\textwidth]{boot_linux_flow.jpg}
+    \caption{Linux Boot Flow}
+\end{figure}
+
+The ROM copies content of the bootloader to static RAM. SRAM memory is limited,
+due to physical reasons and we only have few KBs for bootloader.
+Usually, regular bootloader (e.g. U-Boot) binary is bigger than that.
+So we need to create some additional bootloader, which will initialize regular
+RAM and copy bootloader to RAM, and then jump to execute that regular
+bootloader. This additional bootloader is usually referred as uboot-SPL
+(which stands for Secondary Program Loader).
+
+The bootloader (uboot) decompresses the Linux kernel into RAM from the
+specified peripheral. It then executes a jump to the kernel's first
+instruction, starting the execution of the system.
+
+
