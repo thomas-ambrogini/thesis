@@ -6,7 +6,43 @@
 
 \chapter{Board Characteristics}
 
+This chapter goes into an in-depth exploration of the AM64x board, showing the
+major features exploited during the realization of the project.
+The chapter begins with the reasons behind the selection of the board.
+Next, the chapter explores through a comprehensive analysis of the
+distinctive processor characteristics of the AM64x board: the Arm Cortex-A53,
+Cortex-R5F, Cortex M4 and PRU cores. The analysis of the processors shows their
+individual attributes and how they can work together to solve more complex
+tasks.
+Furthermore, the discussion will explore the mechanisms for interprocessor
+communication, which is a core concept for the coordination among the
+heterogeneous cores.
+
 \section{Board Selection}
+
+The first task done during the internship was the selection of the board to use
+during the project.
+Different board were analyzed during this process, each with its own set of
+characteristics.
+
+The AM64x was the only board which met all the criteria, making it the perfect
+candidate for this project.
+
+The first important element was the availability of different etherogeneous
+cores. The AM64x board has heterogenous multi-core architecure, offering a
+spectrum of processing cores like: Arm Cortex-A53, Cortex-R5F, Cortex-M4F and
+PRU cores. This diversity in processing capabilities enables the implementation
+of complex algorithms and tasks across different computational requirements.
+
+Another important factor is the board's native support for Ethernet
+communication, including Gigabit Ethernet ports and protocols to guarantee 
+seamless data exchange between the embedded system and external devices,
+facilitating efficient communication with regular PCs.
+
+Additionaly, the board's robust hardware features, such as: large connectivity
+options, extensive periperal support, and integrated security features,
+complement the application's demands in orchestrating reliable and secure
+communication in heterogeneous environments.
 
 \section{Introduction to AM64x}
 
