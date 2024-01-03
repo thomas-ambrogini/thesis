@@ -8,7 +8,7 @@
 
 Designing and writing software for embedded systems poses a different set of
 challenges than traditional high-level software development.
-This chapter gives an overview of this challenges.
+This chapter gives an overview of these challenges.
 
 Embedded systems are computing devices performing specific, dedicated tasks
 with no direct or continued user interaction. \cite{embedded_systems_architecture}
@@ -509,6 +509,9 @@ custom Linux based systems independently from the hardware architecture.
 \cite{yocto}
 Yocto is used to create operating system containing only the features
 needed by the embedded application. 
+The Yocto project is more than a build system. It provides tools, processes,
+templates and methods so developers can rapidly create and deploy products for
+the embedded market.
 
 \begin{figure}[htb]
     \centering
@@ -516,6 +519,20 @@ needed by the embedded application.
     \caption{Yocto Stack}
     \label{fig:yocto_stack}
 \end{figure}
+
+Yocto makes possible to automize the creation of an embedded operating system.
+The needed steps to develop a system are:
+
+\begin{enumerate}
+    \item   Select and download the necessary packages and components.
+    \item   Configure the downloaded packages.
+    \item   Compile the configured packages.
+    \item   Install the generated binary, libraries, etc.
+    \item   Generate the final deployable format.
+\end{enumerate}
+
+Depending on the number of packages needed, these steps could become really
+complex to manage, making preferable to use an automated system.
 
 Yocto is characterized by a layer model which grants modularity and the
 possibility for different developers to work on different part of the system
@@ -535,3 +552,28 @@ Bitbake is a build engine, which analyze files called recipes, and build an
 image from them. Inside the recipes there will be all the instruction the
 engine has to perform to create the image.
 
+The project's strenght lies in its ability to offer customization,
+cross-compilation support, reporducibiliy and a community ecosystem, making it
+a fundamental tool for crafting optimized Linux-based solutions for embedded
+applications.
+
+\subsubsection{Poky}
+
+Poky is the Yocto project reference distribution and is composed of a
+collection of tools and metadata.
+It contains the OpenEmbedded Build system: BitBake and OpenEmbedded Core.
+It also include a large set of recipes, organized in hierarchical layers.
+It provices the mechanism to build and combine thousands of distributed open
+source projects to form a fully customizable, complete and coherent Linux
+software stack. \cite{salvador2014embedded}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1.0\textwidth]{yocto_poky_stack.png}
+    \caption{Poky build tool stack}
+\end{figure}
+
+The main concept on which the Poky Build System is constructed is that every
+aspect of a build is controlled by metadata, grouped into package recipes.
+A recipe is then used by BitBake to set variables or define additional tasks to
+be performed during the build.
