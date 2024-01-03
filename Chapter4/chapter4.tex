@@ -1,0 +1,180 @@
+%!TEX root = ../thesis.tex
+
+% *****************************************************************************
+% ********************************** CHAPTER 4 ********************************
+% *****************************************************************************
+
+\chapter{Implementation}
+
+\section{Results}
+
+\subsection{Direct Communication}
+
+In this section there are the measurements obtained by utilizing RPMsg
+directly.
+In their implementation every packet has 16 bytes of header, so the real
+message can be MAX\_MSG\_DIMENSION - 16 bytes of dimension.
+
+\subsubsection{RTOS Cores}
+
+The round trip time for R5s processors is copmuted by timing a message exchange
+between two different R5s.
+
+The round trip time for M4 processor is computed by timing a message exchange
+between the M4 core and one of the R5s.
+
+\begin{table}
+\centering
+\caption{Round trip time results using RP Message between RTOS cores}
+\label{table:direct_communication_RTOS_cores}
+\begin{tabular}{lcccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+RTT R5 (in us) & 16.7 & 21.9 & 32.9 & 54.9 & 98.9 & 186.8 \\
+RTT M4 (in us) & 35.7 & 48.2 & 73.2 & 125.7 & 228.1 & 435.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Linux and RTOS cores}
+
+\begin{table}
+\centering
+\caption{Round trip time results using RP Message between Linux and RTOS cores}
+\label{table:direct_communication_linux_RTOS_cores}
+\begin{tabular}{lccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 \\
+\midrule
+Linux and R5 (in us) & 50 & 61 & 77 & 108 & 168 \\
+Linux and M4 (in us) & 64 & 80 & 110 & 177 & 306 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Broker Communication}
+
+In this section there are the measurements obtained by using the pub/sub
+middleware. There are two modes which are tested:
+
+\begin{itemize}
+    \item   Push: after that a producer sends a message to a brokre, the broker
+            sends it directly to all the subscribed consumers.
+    \item   Pull: the consumers have to ask for the message to be delivered.
+\end{itemize}
+
+\subsubsection{RTOS cores}
+
+In this section only RTOS cores are tested (M4 and R5).
+
+\subsubsection{Push}
+
+When there is only one consumer and one producer in push mode the time needed
+for the consumer and the producer are basically the same.
+
+\begin{table}
+\centering
+\caption{Round trip time results using the middleware between RTOS cores in
+         push mode}
+\label{table:broker_communication_RTOS_cores_push}
+\begin{tabular}{lcccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+Producer R5 Time (in us) & 73.9 & 90.4 & 121.7 & 182.7 & 317.4 & 501.1 \\
+Producer M4 Time (in us) & 99.7 & 111.1 & 137.6 & 190.7 & 322.4 & 506.9 \\
+Consumer R5 Time (in us) & 76.9 & 92.9 & 122.9 & 182.9 & 317.6 & 503.2 \\
+Consumer M4 Time (in us) & 74.9 & 82.1 & 120.6 & 182.8 & 315.2 & 570.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+As it can be seen in the table \ref{table:broker_communication_RTOS_cores_push},
+the time for the consumer on the M4 is the same for the consumer on the R5 core,
+since no messages have to be sent from the consumer when the communication is
+in push mode.
+
+\begin{table}
+\centering
+\caption{Round trip time results using the middleware between RTOS cores with
+         multiple consumers in push mode}
+\label{table:broker_communication_RTOS_cores_multiple_consumers_push}
+\begin{tabular}{lcccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+Producer Time (in us) & 277.2 & 300.9 & 358.9 & 478.2 & 744.9 & 1110.1 \\
+Consumer 1 Time (in us) & 282.2 & 306.1 & 364.1 & 483.2 & 750.1 & 1115.1 \\
+Consumer 2 Time (in us) & 763.4 & 765.4 & 804.1 & 991.4 & 1279.1 & 1503.4 \\
+Consumer 3 Time (in us) & 539.4 & 510.1 & 634.6 & 754.2 & 1063.6 & 1283.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The variations in time measurements among different consumers, which cab be
+seen in \ref{table:broker_communication_RTOS_cores_multiple_consumers_push}
+can be attributed to the system's booting sequence.
+During the boot process, the initialiation of memory areas can differ,
+consequently leading to variations in the prioritization of message delivery.
+It becomes apparent that the order in which processes are booted significantly
+influences the subsequent beavior of the system, resulting in different timing
+outcomes across consumers.
+
+\subsubsection{Pull}
+
+\begin{table}
+\centering
+\caption{Round trip time results using the middleware between RTOS cores in
+         pull mode}
+\label{table:broker_communication_RTOS_cores}
+\begin{tabular}{lcccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 & 1024 \\
+\midrule
+Producer R5 Time (in us) & 93.1 & 104.1 & 121.2 & 152.4 & 212.7 & 301.8 \\
+Producer M4 Time (in us) & 171.1 & 182.4 & 191.5 & 262.4 & 391.9 & 579.2 \\
+Consumer R5 Time (in us) & 228.6 & 238.9 & 276.1 & 325.4 & 439.9 & 618.9 \\
+Consumer M4 Time (in us) & 372.3 & 411.5 & 490.4 & 589.9 & 843.8 & 1236.7 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Linux on Cortex-A53}
+
+In the Liux IPC library communication the maximum dimension for messages is
+512 bytes.
+
+\subsubsection{Push}
+
+\begin{table}
+\centering
+\caption{Round trip time results using the middleware betewen Linux and RTOS
+    cores in push mode}
+\label{table:broker_communication_linux_RTOS_cores_push}
+\begin{tabular}{lccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 \\
+\midrule
+Producer Time(in us) & 98 & 127 & 191 & 264 & 393 \\
+Consumer Time (in us) & 97 & 127 & 191 & 264 & 393 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Pull}
+
+\begin{table}
+\centering
+\caption{Round trip time results using the middleware betewen Linux and RTOS
+    cores in pull mode}
+\label{table:broker_communication_linux_RTOS_cores_pull}
+\begin{tabular}{lccccc}
+\toprule
+Message Size (in bytes) & 32 & 64 & 128 & 256 & 512 \\
+\midrule
+Producer Time(in us) & 148 & 171 & 227 & 231 & 367 \\
+Consumer Time (in us) & 264 & 292 & 322 & 406 & 565 \\
+\bottomrule
+\end{tabular}
+\end{table}
