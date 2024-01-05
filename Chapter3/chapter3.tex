@@ -14,7 +14,7 @@ dissemination and event delivery from publishers to subscribers.
 In a pub/sub system there are two entities which can participate to the
 communication: the publishers and the subscribers.
 Subscribers have the possibility to express their interest in a type of event
-or a pattern of event, and they are notified when a publisher generate an event
+or a pattern of events, and they are notified when a publisher generate an event
 which they are interested in.
 
 The biggest advantage in using pub/sub communication is the decoupling of
@@ -27,7 +27,7 @@ around us. Any person meets a constant barrage of events in his
 
 \section{Apache Kafka}
 
-Apache Kafka is an open-source distributed even streaming platform that can
+Apache Kafka is an open-source distributed event streaming platform that can
 publish, subscribe to, store, and process streams of records in real time.
 It is designed to handle data streams from multiple sources and deliver them to
 multiple consumers. \cite{garg2013apache}
@@ -76,9 +76,9 @@ read, this is done in form of events in Kafka. \cite{kafka_documentation}
 
 Event streaming is the practice of capturing data in real-time from event
 sources like databases, sensors, mobile devices, cloud services, and software
-applications in the form of of streams of events; storing 
+applications in the form of streams of events; storing 
 
-An evet has a key, value, timestamp and optional metadata headers. An example
+An event has a key, value, timestamp and optional metadata headers. An example
 of event could be:
 
 \begin{itemize}
@@ -97,15 +97,16 @@ Events, or messages, are organized and durably stored in topics.
 Topics in Kafka are always multi-producer and multi-subscriber.
 Events in a topic can be read as often as needed, unlike traditional messaging
 systems, events are not deleted after consumption. Instead, you define for how
-long Kafka should retain your events through a pre-topic configuration setting,
+long Kafka should retain your events through a per-topic configuration setting,
 after which old events will be discarded. Kafka's performance is effectively
-constant with respect to data size, so storing data for a long is perfectly
+constant with respect to data size, so storing data for a long time is
+perfectly feasible.
 
 \subsection{Partitions}
 
 Topics are partitioned, meaning a topic is spread over a number of "buckets"
 located on different Kafka brokers.
-This distributed placement of your data is very important for scalability
+This distributed placement of the data is very important for scalability
 because it allows client appliations to both read and write the data from/to
 many brokers at the same time. When a new event is published to a topic, it is
 actually appended to one of the topic's partitions.
@@ -213,7 +214,7 @@ instances.
     \caption{Example of Producer publishing data}
 \end{figure}
 
-The producer consists of a pool of buffer space taht holds records that haven't
+The producer consists of a pool of buffer space that holds records that haven't
 yet been transmitted to the server as well as a background I/O thread that is
 responsible for turning these records into requests and transmitting them to
 the cluster.
@@ -379,7 +380,7 @@ sent.
 
 If a producer doesn't specify a partition key when producing a record, Kafka
 will use a round-robin partition assignment. Those records will be written
-evenly across all partitions of a particular topic.
+evenly, across all partitions of a particular topic.
 However, if no partition key is used, the ordering of records can not be
 guaranteed within a given partition.
 
