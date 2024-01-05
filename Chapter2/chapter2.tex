@@ -22,7 +22,7 @@ heterogeneous cores.
 
 The first task done during the internship was the selection of the board to use
 during the project.
-Different board were analyzed during this process, each with its own set of
+Different boards were analyzed during this process, each with its own set of
 characteristics.
 
 \begin{figure}
@@ -34,7 +34,7 @@ characteristics.
 The AM64x was the only board which met all the criteria, making it the perfect
 candidate for this project.
 
-The first important element was the availability of different etherogeneous
+The first important element was the availability of different heterogeneous
 cores. The AM64x board has heterogenous multi-core architecure, offering a
 spectrum of processing cores like: Arm Cortex-A53, Cortex-R5F, Cortex-M4F and
 PRU cores. This diversity in processing capabilities enables the implementation
@@ -46,7 +46,7 @@ seamless data exchange between the embedded system and external devices,
 facilitating efficient communication with regular PCs.
 
 Additionaly, the board's robust hardware features, such as: large connectivity
-options, extensive periperal support, and integrated security features,
+options, extensive peripheral support, and integrated security features,
 complement the application's demands in orchestrating reliable and secure
 communication in heterogeneous environments.
 
@@ -106,7 +106,7 @@ which is a crucial characteristic in many industries.
 The possibility of isolating these safety-critical elements from the rest
 of the SoC guarantees enhanced security and integrity.
 
-The M4F core is developed to address digital signal contorl markets that demand
+The M4F core is developed to address digital signal control markets that demand
 an efficient, easy-to-use blend of control and signal processing capabilities.
 \cite{ARM_M4}
 The combination of high-efficiency signal processing functionality with the
@@ -128,7 +128,7 @@ The SoC implements one cluster of dual-core Arm Cortex-A53 MPCore, which is
 a multi-core variant of the A53 core, where each core can execute code 
 independently from the other.
 It is based on the symmetric multiprocessor (SMP) architecture, where all
-cores have equal access to system resources like memory and periperals.
+cores have equal access to system resources like memory and peripherals.
 
 
 \begin{figure}[htb]
@@ -184,7 +184,7 @@ for real-time applications.
 The most important features are: deterministic behavior, safety and
 reliability.
 
-It features an harvard memory architecture, which separates the cache for
+It features an Harvard memory architecture, which separates the cache for
 instructions and the cache for data.
 Each core has a total of 32KB of L1 cache: 16KB for instruction and 16KB for
 data.
@@ -205,7 +205,7 @@ The TCM can be used to hold time-critical routines, such as interrupt
 handling routines or real-time tasks where the indeterminacy of a cache is
 undesirable. In addition, you can use it to hold ordinary variables, data types
 whose locality properties are not well suited to caching, and critical data
-strutures such as interrupt stacks. \cite{TCM_documentation}
+structures such as interrupt stacks. \cite{TCM_documentation}
 
 The subsystem can operate in one of two modes: split or single-core mode, which
 has to be decided during bootstrap.
@@ -282,7 +282,7 @@ control and data processing.
 \end{figure}
 
 
-PRU-ICSSG represent the next generation of PRU-ICSS, builiding on the
+PRU-ICSSG represent the next generation of PRU-ICSS, building on the
 capabilities introduced in the predecessor (PRU-ICCS).
 At its core, each PRU-ICSSG has 4 32-bit RISC cores:
 
@@ -304,7 +304,7 @@ embedded in the Sitara family of microcontrollers. PRUs are designed for
 real-time applications that require low-latency and deterministic performance.
 They offer a dual-core architecture, with high programmability, enabling custom
 firmware to be executed in real time. PRUs are especially suitable for tasks
-such as industrial conrol, motor control, communication interfaces, and custom
+such as industrial control, motor control, communication interfaces, and custom
 I/O control. They provide low-latency, direct access to processor pins, making
 them efficient for interfacing with external devices. PRUs can be used
 alongside the main ARM CPU, sharing resources as needed.
@@ -341,7 +341,7 @@ The two most important types in the AM64x are: MSRAM and DDR memory layout.
 
 \subsubsection{MSRAM}
 
-MSRAM, or SRAM (Static Random-Access Memory), stands out of rits high speed,
+MSRAM, or SRAM (Static Random-Access Memory), stands out of its high speed,
 low power consumption when idle, reliability, and lack of a need for data
 refreshing. However, it's relatively expensive and offers lower storage
 densite compared to DDR SDRAM.
@@ -398,7 +398,7 @@ memory density compared to MSRAM.
 The layout of the DDR differs, depending on which Operating System is running
 on the cores.
 
-If embedded Linux is running on the A53 core, the DDR has divided in sections,
+If embedded Linux is running on the A53 core, the DDR is divided into sections,
 one for every core, which has to be used in the RTOS application.
 
 \begin{figure}[ht]
@@ -407,8 +407,8 @@ one for every core, which has to be used in the RTOS application.
     \caption{DDR layout with linux running on A53 core}
 \end{figure}
 
-If RTOS or a baremetal application is running on the A53 core, the application
-has to be loaded in DDR to boot.
+If an RTOS or a bare-metal application is running on the A53 core, the
+application needs to be loaded into DDR for booting.
 The DDR is not allocated in this case, and it can be used by the all the cores,
 specifying it in the linker file.
 
@@ -420,7 +420,7 @@ specifying it in the linker file.
 
 \section{Networking}
 
-Advances in the embedded systems have lead to new functionalities to be
+Advances in the embedded systems have led to new functionalities to be
 required. The ability to communicate over the internet with other devices.
 
 Networking is a broad term used to cover Ethernet (IEEE 802.3), EtherCAT
@@ -477,7 +477,7 @@ applications based on their specific needs and requirements.
 
 IPC Notify defines APIs for enabling low-latency inter-processor communication
 between different CPU cores. These APIs prioritize speed and efficiency and are
-therefore contrained in terms of features.
+therefore constrained in terms of features.
 
 To achieve low latency, the underlying implementation employs hardware
 mechanisms to interrupt the receiving CPU cores. Additionaly, it utilizes
@@ -509,7 +509,7 @@ This notification is done using a hardware interrupt mechanism, similar to
 IPC Notify.
 
 In contrary with IPC Notify, RPMessage allows for variable packet sizes.
-When both ends are using real-time opearting systems, the minimum packet size
+When both ends are using real-time operating systems, the minimum packet size
 is 4 bytes, but it can be configured by the developer to use bigger sizes,
 although 512 bytes should be taken as upper limit.
 If Linux is involved in the communication the size of the packet is fixed to
@@ -536,7 +536,7 @@ RPMsg driver. These RPMsg devices are dynamically generated, initiated by an
 announcement message from the remote processor. This message contains
 information about the service's name, source, and destination addresses.
 
-The handling of this announcement message is the responsability of the
+The handling of this announcement message is the responsibility of the
 RPMsg bus, which dynamically creates and registers an RPMsg device that
 represents the remote service. Once a relevant RPMsg driver is registered, it
 is immediately probed by the bus, and this allows both sides to begin
@@ -550,7 +550,7 @@ exchanging messages.
 
 \subsection{PRU IPC}
 
-Given that PRUs can can offload tasks from the primary cores, establishing 
+Given that PRUs can offload tasks from the primary cores, establishing 
 communication between the PRU cores and the ARM cores becomes essential.
 
 PRU IPC module provides APIs for communicating with the PRU cores with low
@@ -653,7 +653,7 @@ Steps for the PRU:
             Vring by writing its index into a message in Mailbox 3.
 \end{enumerate}
 
-Stesp for the ARM host:
+Steps for the ARM host:
 
 \begin{enumerate}
     \item   Kicked Vring Detection: an interrupt is triggered, signaling that
@@ -696,7 +696,7 @@ integrity and security, working as root of trust for the rest of the operations.
 
 After the ROM bootloader, the SBL takes control which is typically more
 versatile and configurable than the ROM bootloader.
-Te SBL is responsible for orchestrating the boot process of the actual
+The SBL is responsible for orchestrating the boot process of the actual
 application.
 It can perform complex bootloading tasks, including initializing different
 processor cores and managing the loading and execution of the application
