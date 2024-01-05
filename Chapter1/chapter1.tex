@@ -12,13 +12,13 @@ This chapter gives an overview of these challenges.
 
 Embedded systems are computing devices performing specific, dedicated tasks
 with no direct or continued user interaction. \cite{embedded_systems_architecture}
-Due to the variety of market and technologies, these objects have different
+Due to the variety of markets and technologies, these objects have different
 shapes and sizes, in general, they are small and resource constrained.
 
 One of the characteristics for which embedded systems are used is the capacity
 of delivering real time processing.
 Real time processing refers to external events within precise and predictable
-timeframes. In manifacturing, robotics, and automative production, timely
+timeframes. In manufacturing, robotics, and automative production, timely
 responses to changing conditions can mean the difference between operational
 success and failure. Embedded systems excel at this, ensuring that processes
 are executed with minimal latency, guaranteeing the coordination and
@@ -35,7 +35,7 @@ power.
 These constraints are a direct result of the need for compact, energy-efficient
 and cost-effective solutions.
 These limitations impose significant design challenges, forcing developers to
-optimize their code and data storate in order to respect those limits.
+optimize their code and data storage in order to respect those limits.
 
 \section{Microcontoller, Microprocessor and SoC}
 
@@ -104,7 +104,7 @@ Building the firmware images for an embedded system relies on a similar set of
 tools, called a toolchain.
 
 In order to create an executable for an embedded system, the process is more
-more complex than just creating the executable for a regular development
+complex than just creating the executable for a regular development
 environment.
 Since the architecture of the CPU is not the same of the host machine, a
 compiler that generates machine code for the specific target architecture is
@@ -126,14 +126,14 @@ The first element of the toolchain is the compiler, which is responsible for
 translating source code into machine code, which can be interpreted by a
 specific CPU.
 Each compiler can produce code for only one environment, since the source code
-is translated to machine specific instructions, which uses the registers and
+is translated to machine specific instructions, which use the registers and
 the address model of a specific architecture.
 
 The compiler creates object files (.o) starting from the source code.
 These files contain compiled code for the target machine, which is still not
 executable, but can be linked to other object files to create the executable.
 
-Object files contain instructions for the CPU and a symbol table, containing
+Object files contains instructions for the CPU and a symbol table, containing
 information about functions and variables of the program.
 These files have information about the functions and variables initial value.
 
@@ -146,8 +146,8 @@ executable.
 
 The standard executable format is called ELF (executable and linkable format)
 and it has been designed to represent programs on disk and other media.
-It can be executed by loading the information in RAM in specifc addresses.
-ELF files are divided into section, each one of them represents a different
+It can be executed by loading the information in RAM in specific addresses.
+ELF files are divided into sections, each one of them represents a different
 area of memory with information needed for the execution of the program.
 They also contain an header with a pointer to the different sections inside
 the file.
@@ -165,7 +165,7 @@ Read-only information can be loaded directly from flash in an embedded system,
 while data that need to be modified has to be in RAM on modifiable areas of
 memory.
 
-In regular development environments, much of the complexity of the linking 
+In regular development environment, much of the complexity of the linking 
 step is hidden, but the linker is configured, by default, to rearrange the
 compiled symbols into sections which can be loaded into the process' virtual
 addresses by the operating system.
@@ -176,7 +176,7 @@ architecture.
 In order to specify in which areas of memory the sections have to be placed,
 a custom linker file has to be created. This file defines the memory layout of
 the executable bare metal application.
-Additionaly, in linker files, custom sections can be used if they are required
+Additionally, in linker files, custom sections can be used if they are required
 by the target system.
 
 \subsection{Make}
@@ -224,7 +224,7 @@ In the embedded world, bootloaders are intimely tied to the underlying
 architecture of the SoC. They are typically securely stored in a non-volatile,
 protected on-chip memory, ensuring their availability at startup.
 
-Upon execution, the bootloader execute a series of tasks. It begins by
+Upon execution, the bootloader executes a series of tasks. It begins by
 performing hardware checks to verify the integrity and functionality of the
 SoC's components. Then, it takes charge of initializing the processor and
 configuring essential system-on-chip registers.
@@ -250,19 +250,19 @@ embedded system.
             connections need to be established. Additionaly, boot configuration
             pins should be set to their desired logical levels to configure
             the system's behavior.
-    \item   Power, Clock, adn Reset Ramp Sequence: the power-management chip
+    \item   Power, Clock, and Reset Ramp Sequence: the power-management chip
             typically govern the applicaton of a specific sequence for powering
             up the system. This sequence ensures that the system components are
             brought ot life in the correct order and that power and clock
             sources stabilize gradually.
     \item   ROM Code: responsible for finding, for downloading, and for
-            executing the intial software (SBL).
+            executing the initial software (SBL).
     \item   Initial Software (Secondary Bootloader - SBL): software that loads,
             prepares, and passes control to application software or the
             high-level operating system (HLOS).
     \item   High-Level Operating System or Bare-Metal Application: the final
             stage of the boot process involves the execution of the high-level
-            opearting system or a bare-metal application. This is the primary
+            operating system or a bare-metal application. This is the primary
             software that runs on the main processor of the system. In case of
             an operating system, it provides a platform for running
             applications. In a bare-metal system, it typically includes the
@@ -310,7 +310,7 @@ together.
 
 Multi core bootloading can be seen as an extension of a multi-stage bootloader.
 In this scenario, the first stage bootloader may not even be aware of the
-presence of other cores. Its primary responsability is to initiate the
+presence of other cores. Its primary responsibility is to initiate the
 next-stage bootloader, wihch then takes charge of orchestrating the complex
 bootloading process across multiple cores.
 

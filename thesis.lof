@@ -1,0 +1,44 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Microprocessor and microcontroller architectures}}{2}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Cross Compilation process}}{4}{}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Steps needed for the system boot}}{7}{}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Multi stage bootloader}}{9}{}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Task states}}{12}{}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Embedded Linux Architecture}}{13}{}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Architecture of Real Time Linux}}{15}{}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Yocto Stack}}{16}{}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Poky build tool stack}}{17}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Board analyzed}}{19}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces AM64x architecture}}{20}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Cortex-A53 MPCore architecture with 4 cores}}{22}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A53SS Block Diagram}}{23}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces R5FSS Block Diagram}}{24}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces M4FSS Block Diagram}}{25}{}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces PRUICSSG Architecture}}{27}{}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces MSRAM layout}}{29}{}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces DDR layout with linux running on A53 core}}{30}{}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces DDR layout with RTOS or baremetal application on A53 core}}{31}{}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Networking Software Stack}}{32}{}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces IPC mechanisms}}{33}{}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces RPMsg library stack}}{35}{}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces PRU IPC}}{36}{}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Components for Linux and PRU IPC}}{37}{}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Steps needed to send a message from the ARM core to the PRU}}{38}{}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Steps needed to send a message from the PRU to the ARM core}}{39}{}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Initial boot flow of the SoC}}{42}{}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Flow of the boot process}}{43}{}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Steps done by the SBL}}{44}{}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Components needed for the boot of Linux}}{47}{}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Linux Boot Flow}}{47}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Apache Kafka Architecture}}{49}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Kafka Partitions}}{51}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Structure of a partition}}{52}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Partitions with the offset for every record}}{53}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Producer publishing data}}{55}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Distribution of messages based on partition key}}{59}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Example of reading a partition from two consumers}}{60}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Consumer groups reading from the Kafka cluster}}{61}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Kafka degree of parallelism}}{62}{}%
+\addvspace {10\p@ }

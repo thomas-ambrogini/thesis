@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: Title_page/titlepage.aux
+A level-1 auxiliary file: Chapter1/chapter1.aux
+A level-1 auxiliary file: Chapter2/chapter2.aux
+A level-1 auxiliary file: Chapter3/chapter3.aux
+A level-1 auxiliary file: Chapter4/chapter4.aux
+The style file: plain.bst
+Database file #1: Bibliography/bibliography.bib
+Warning--to sort, need author or key in GNUMake
+Warning--to sort, need author or key in freeRTOS
+Warning--to sort, need author or key in embedded_linux_windriver
+Warning--to sort, need author or key in linux_embedded_ubuntu
+Warning--to sort, need author or key in linux_real_time
+Warning--to sort, need author or key in yocto
+Warning--to sort, need author or key in AM64_datasheet
+Warning--to sort, need author or key in ARM_M4
+Warning--to sort, need author or key in Technical_reference_AM64
+Warning--to sort, need author or key in TCM_documentation
+Warning--to sort, need author or key in M4F_technical_reference
+Warning--to sort, need author or key in kafka_documentation
+Warning--empty publisher in embedded_systems_architecture
+Warning--empty publisher in Pub/Sub_pattern
+You've used 18 entries,
+            2118 wiz_defined-function locations,
+            583 strings with 6055 characters,
+and the built_in function-call counts, 3495 in all, are:
+= -- 325
+> -- 76
+< -- 0
++ -- 39
+- -- 20
+* -- 160
+:= -- 489
+add.period$ -- 42
+call.type$ -- 18
+change.case$ -- 59
+chr.to.int$ -- 0
+cite$ -- 32
+duplicate$ -- 155
+empty$ -- 416
+format.name$ -- 20
+if$ -- 808
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 11
+newline$ -- 81
+num.names$ -- 12
+pop$ -- 144
+preamble$ -- 1
+purify$ -- 46
+quote$ -- 0
+skip$ -- 121
+stack$ -- 0
+substring$ -- 118
+swap$ -- 18
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 62
+warning$ -- 14
+while$ -- 13
+width$ -- 20
+write$ -- 157
+(There were 14 warnings)
