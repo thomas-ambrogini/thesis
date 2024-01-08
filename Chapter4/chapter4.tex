@@ -6,9 +6,40 @@
 
 \chapter{Implementation}
 
+The implementation of the pub-sub created for this project is a topic-based
+middleware: meaning that the events are gruoped based on the topic on which
+they are sent and consumers can subscribe to a topic to receive those messages.
+
+With space decoupling publishers and subscribers operate without direct
+knowledge or dependencies on each other. Publishers disseminate envets through
+an intermediary event service, unaware of the subscribers receving these events
+or their count. Similarly, subscribers obtain events indirecly this sevice,
+without knowledge about the publishers or their numbers. This design promotes
+system flexibility and scalability. It allows to add and remove components
+without corrupting the entire system, offering anonymity betewen publishers
+and subscribers while enabling a more modular and adaptable architecture.
+
+Why do we consider different processors as a distributed system and which
+advantages comes from that?
+- Security
+- Safety
+- Decoupling
+
+\section{Reasons for using pub/sub in this}
+
+Many industrial systems prototypes support this style of interaction.
+
 \section{I don't know}
 
 \subsection{Marshalling and Unmarshalling messages}
+
+\section{Main functions}
+
+\subsection{Receive}
+
+The receive is implemented through the RPMessage APIs.
+
+Implementation of the Linux one, etc.
 
 \section{Results}
 

@@ -31,3 +31,15 @@
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Steps done by the SBL}}{47}{}%
 \contentsline {figure}{\numberline {2.21}{\ignorespaces Components needed for the boot of Linux}}{47}{}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces Linux Boot Flow}}{48}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces General architecture of a pub/sub middleware}}{50}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Apache Kafka Architecture}}{52}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kafka Partitions}}{54}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a partition}}{55}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Partitions with the offset for every record}}{56}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Producer publishing data}}{57}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Distribution of messages based on partition key}}{61}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Example of reading a partition from two consumers}}{63}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Consumer groups reading from the Kafka cluster}}{64}{}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Kafka degree of parallelism}}{65}{}%
+\addvspace {10\p@ }

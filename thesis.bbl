@@ -37,6 +37,10 @@ Tightly coupled memories documentation.
 Am64x datasheet.
 \newblock \url{https://www.ti.com/lit/ds/symlink/am6412.pdf}, 2023.
 
+\bibitem{kafka_documentation}
+Apache kafka documentation.
+\newblock \url{https://kafka.apache.org/documentation/}, 2023.
+
 \bibitem{freeRTOS}
 freertos site.
 \newblock \url{https://www.freertos.org/about-RTOS.html}, 2023.
@@ -54,6 +58,17 @@ Doug Abbott.
 \newblock {\em Linux for embedded and real-time applications}.
 \newblock Elsevier, 2011.
 
+\bibitem{Many_faces_of_pub/sub}
+Patrick~Th. Eugster, Pascal~A. Felber, Rachid Guerraoui, and Anne-Marie
+  Kermarrec.
+\newblock The many faces of publish/subscribe.
+\newblock {\em ACM Comput. Surv.}, 35(2):114–131, jun 2003.
+
+\bibitem{garg2013apache}
+Nishant Garg.
+\newblock {\em Apache kafka}.
+\newblock Packt Publishing Birmingham, UK, 2013.
+
 \bibitem{embedded_systems_architecture}
 Daniele Lacamera.
 \newblock {\em Embedded systems architecture}.
@@ -63,5 +78,10 @@ Daniele Lacamera.
 Otavio Salvador and Daiane Angolini.
 \newblock {\em Embedded Linux Development with Yocto Project}.
 \newblock Packt Publishing Ltd, 2014.
+
+\bibitem{Pub/Sub_pattern}
+Sasu Tarkoma.
+\newblock {\em Publish/subscribe systems: design and principle}.
+\newblock 2012.
 
 \end{thebibliography}
