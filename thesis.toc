@@ -1,95 +1,96 @@
-\contentsline {chapter}{\numberline {1}Embedded Systems}{1}{}%
-\contentsline {section}{\numberline {1.1}Microcontoller, Microprocessor and SoC}{2}{}%
-\contentsline {subsection}{\numberline {1.1.1}Microcontroller}{2}{}%
-\contentsline {subsection}{\numberline {1.1.2}Microprocessor}{3}{}%
-\contentsline {subsection}{\numberline {1.1.3}SoC}{3}{}%
-\contentsline {section}{\numberline {1.2}Toolchain}{3}{}%
-\contentsline {subsection}{\numberline {1.2.1}Cross Compiler}{4}{}%
-\contentsline {subsection}{\numberline {1.2.2}Linker}{5}{}%
-\contentsline {subsection}{\numberline {1.2.3}Make}{6}{}%
-\contentsline {subsection}{\numberline {1.2.4}Debugger}{6}{}%
-\contentsline {section}{\numberline {1.3}Boot}{7}{}%
-\contentsline {subsection}{\numberline {1.3.1}Boot steps}{7}{}%
-\contentsline {subsection}{\numberline {1.3.2}Multi-stage Bootloader}{8}{}%
-\contentsline {subsection}{\numberline {1.3.3}Multi core bootloading}{9}{}%
-\contentsline {section}{\numberline {1.4}Operating Systems}{10}{}%
-\contentsline {subsection}{\numberline {1.4.1}Real Time Operating Systems}{11}{}%
-\contentsline {subsubsection}{FreeRTOS}{11}{}%
-\contentsline {subsection}{\numberline {1.4.2}Linux Embedded Systems}{12}{}%
-\contentsline {subsubsection}{Linux Embedded Real Time}{14}{}%
-\contentsline {subsubsection}{Yocto}{14}{}%
-\contentsline {subsubsection}{Poky}{17}{}%
-\contentsline {chapter}{\numberline {2}Board Characteristics}{18}{}%
-\contentsline {section}{\numberline {2.1}Board Selection}{18}{}%
-\contentsline {section}{\numberline {2.2}Introduction to AM64x}{19}{}%
-\contentsline {subsection}{\numberline {2.2.1}A53 Subsystem}{21}{}%
-\contentsline {subsection}{\numberline {2.2.2}R5F Subsystem}{23}{}%
-\contentsline {subsection}{\numberline {2.2.3}M4F Subsystem}{25}{}%
-\contentsline {subsection}{\numberline {2.2.4}PRU-ICSSG}{26}{}%
-\contentsline {subsubsection}{PRU-ICSSG Cores}{27}{}%
-\contentsline {section}{\numberline {2.3}Memory Map Layout}{28}{}%
-\contentsline {subsubsection}{MSRAM}{28}{}%
-\contentsline {subsubsection}{DDR}{30}{}%
+\contentsline {chapter}{\numberline {1}Embedded Systems}{2}{}%
+\contentsline {section}{\numberline {1.1}Microcontoller, Microprocessor and SoC}{3}{}%
+\contentsline {subsection}{\numberline {1.1.1}Microcontroller}{3}{}%
+\contentsline {subsection}{\numberline {1.1.2}Microprocessor}{4}{}%
+\contentsline {subsection}{\numberline {1.1.3}SoC}{4}{}%
+\contentsline {section}{\numberline {1.2}Toolchain}{4}{}%
+\contentsline {subsection}{\numberline {1.2.1}Cross Compiler}{5}{}%
+\contentsline {subsection}{\numberline {1.2.2}Linker}{6}{}%
+\contentsline {subsection}{\numberline {1.2.3}Make}{7}{}%
+\contentsline {subsection}{\numberline {1.2.4}Debugger}{7}{}%
+\contentsline {section}{\numberline {1.3}Boot}{8}{}%
+\contentsline {subsection}{\numberline {1.3.1}Boot steps}{8}{}%
+\contentsline {subsection}{\numberline {1.3.2}Multi-stage Bootloader}{9}{}%
+\contentsline {subsection}{\numberline {1.3.3}Multi core bootloading}{10}{}%
+\contentsline {section}{\numberline {1.4}Operating Systems}{11}{}%
+\contentsline {subsection}{\numberline {1.4.1}Real Time Operating Systems}{12}{}%
+\contentsline {subsubsection}{FreeRTOS}{12}{}%
+\contentsline {subsection}{\numberline {1.4.2}Linux Embedded Systems}{13}{}%
+\contentsline {subsubsection}{Linux Embedded Real Time}{15}{}%
+\contentsline {subsubsection}{Yocto}{15}{}%
+\contentsline {subsubsection}{Poky}{18}{}%
+\contentsline {chapter}{\numberline {2}Board Characteristics}{19}{}%
+\contentsline {section}{\numberline {2.1}Board Selection}{19}{}%
+\contentsline {section}{\numberline {2.2}Introduction to AM64x}{20}{}%
+\contentsline {subsection}{\numberline {2.2.1}A53 Subsystem}{23}{}%
+\contentsline {subsection}{\numberline {2.2.2}R5F Subsystem}{24}{}%
+\contentsline {subsection}{\numberline {2.2.3}M4F Subsystem}{26}{}%
+\contentsline {subsection}{\numberline {2.2.4}PRU-ICSSG}{27}{}%
+\contentsline {subsubsection}{PRU-ICSSG Cores}{28}{}%
+\contentsline {section}{\numberline {2.3}Memory Map Layout}{29}{}%
+\contentsline {subsubsection}{MSRAM}{30}{}%
+\contentsline {subsubsection}{DDR}{31}{}%
 \contentsline {section}{\numberline {2.4}Networking}{31}{}%
-\contentsline {section}{\numberline {2.5}Inter Processor Communication}{32}{}%
-\contentsline {subsection}{\numberline {2.5.1}IPC Notify}{33}{}%
-\contentsline {subsection}{\numberline {2.5.2}RPMessage}{34}{}%
-\contentsline {subsection}{\numberline {2.5.3}Linux IPC}{35}{}%
-\contentsline {subsection}{\numberline {2.5.4}PRU IPC}{35}{}%
-\contentsline {subsubsection}{Communication between Linux and PRUs}{36}{}%
-\contentsline {subsubsection}{ARM to PRU}{37}{}%
-\contentsline {subsubsection}{PRU to ARM}{39}{}%
-\contentsline {section}{\numberline {2.6}System boot}{40}{}%
-\contentsline {subsection}{\numberline {2.6.1}Boot without Linux}{40}{}%
-\contentsline {subsubsection}{Initial Boot Flow}{41}{}%
-\contentsline {subsubsection}{Boot Process flow}{42}{}%
-\contentsline {subsection}{\numberline {2.6.2}DMSC}{42}{}%
-\contentsline {subsection}{\numberline {2.6.3}Linux boot}{43}{}%
-\contentsline {chapter}{\numberline {3}Publish/Subscribe communication}{49}{}%
-\contentsline {section}{\numberline {3.1}Apache Kafka}{51}{}%
-\contentsline {subsection}{\numberline {3.1.1}Events}{53}{}%
-\contentsline {subsection}{\numberline {3.1.2}Topics}{53}{}%
-\contentsline {subsection}{\numberline {3.1.3}Partitions}{54}{}%
-\contentsline {subsubsection}{Offsets}{54}{}%
-\contentsline {subsubsection}{Distribution of Partitions}{55}{}%
-\contentsline {subsection}{\numberline {3.1.4}Producers}{57}{}%
-\contentsline {subsubsection}{Fault Tolerance}{58}{}%
-\contentsline {subsubsection}{Load Balancing}{58}{}%
-\contentsline {subsubsection}{Asynchronous Send}{59}{}%
-\contentsline {subsection}{\numberline {3.1.5}Consumers}{59}{}%
-\contentsline {subsubsection}{Push vs Pull}{59}{}%
-\contentsline {subsubsection}{Consumer Position (Offset)}{60}{}%
-\contentsline {subsubsection}{Detecting Consumer Failure}{60}{}%
-\contentsline {subsection}{\numberline {3.1.6}Brokers}{60}{}%
-\contentsline {subsection}{\numberline {3.1.7}Writing Records to partitions}{61}{}%
-\contentsline {subsubsection}{Partition key}{61}{}%
-\contentsline {subsubsection}{Kafka decide the partition}{62}{}%
-\contentsline {subsubsection}{Writing a customer partition}{62}{}%
-\contentsline {subsection}{\numberline {3.1.8}Reading records from a partition}{62}{}%
-\contentsline {subsection}{\numberline {3.1.9}Consumer Groups}{63}{}%
-\contentsline {subsection}{\numberline {3.1.10}Message Delivery Semnatics}{64}{}%
-\contentsline {chapter}{\numberline {4}Implementation}{67}{}%
-\contentsline {section}{\numberline {4.1}Architecture}{68}{}%
-\contentsline {section}{\numberline {4.2}Class interactions}{69}{}%
-\contentsline {section}{\numberline {4.3}Class Diagrams}{71}{}%
-\contentsline {subsection}{\numberline {4.3.1}Topic Manager}{71}{}%
-\contentsline {subsection}{\numberline {4.3.2}QoS}{72}{}%
-\contentsline {subsection}{\numberline {4.3.3}Communication}{74}{}%
-\contentsline {subsection}{\numberline {4.3.4}Domain level}{75}{}%
-\contentsline {section}{\numberline {4.4}Sequence Diagram}{76}{}%
-\contentsline {subsection}{\numberline {4.4.1}Consumer asking for a record}{77}{}%
-\contentsline {subsection}{\numberline {4.4.2}Publisher sending a record}{77}{}%
-\contentsline {subsection}{\numberline {4.4.3}Synchronization of the cluster status}{78}{}%
-\contentsline {subsection}{\numberline {4.4.4}Broker receiving a record}{80}{}%
-\contentsline {subsection}{\numberline {4.4.5}Consumer subscribing to a topic}{80}{}%
-\contentsline {section}{\numberline {4.5}Results}{81}{}%
-\contentsline {subsection}{\numberline {4.5.1}Direct Communication}{82}{}%
-\contentsline {subsubsection}{RTOS Cores}{82}{}%
-\contentsline {subsubsection}{Linux and RTOS cores}{83}{}%
-\contentsline {subsection}{\numberline {4.5.2}Broker Communication}{83}{}%
+\contentsline {section}{\numberline {2.5}Inter Processor Communication}{33}{}%
+\contentsline {subsection}{\numberline {2.5.1}IPC Notify}{34}{}%
+\contentsline {subsection}{\numberline {2.5.2}RPMessage}{35}{}%
+\contentsline {subsection}{\numberline {2.5.3}Linux IPC}{36}{}%
+\contentsline {subsection}{\numberline {2.5.4}PRU IPC}{36}{}%
+\contentsline {subsubsection}{Communication between Linux and PRUs}{37}{}%
+\contentsline {subsubsection}{ARM to PRU}{38}{}%
+\contentsline {subsubsection}{PRU to ARM}{40}{}%
+\contentsline {section}{\numberline {2.6}System boot}{41}{}%
+\contentsline {subsection}{\numberline {2.6.1}Boot without Linux}{41}{}%
+\contentsline {subsubsection}{Initial Boot Flow}{42}{}%
+\contentsline {subsubsection}{Boot Process flow}{43}{}%
+\contentsline {subsection}{\numberline {2.6.2}DMSC}{44}{}%
+\contentsline {subsection}{\numberline {2.6.3}Linux boot}{45}{}%
+\contentsline {chapter}{\numberline {3}Publish/Subscribe communication}{50}{}%
+\contentsline {section}{\numberline {3.1}Apache Kafka}{52}{}%
+\contentsline {subsection}{\numberline {3.1.1}Events}{54}{}%
+\contentsline {subsection}{\numberline {3.1.2}Topics}{54}{}%
+\contentsline {subsection}{\numberline {3.1.3}Partitions}{55}{}%
+\contentsline {subsubsection}{Offsets}{55}{}%
+\contentsline {subsubsection}{Distribution of Partitions}{56}{}%
+\contentsline {subsection}{\numberline {3.1.4}Producers}{58}{}%
+\contentsline {subsubsection}{Fault Tolerance}{59}{}%
+\contentsline {subsubsection}{Load Balancing}{59}{}%
+\contentsline {subsubsection}{Asynchronous Send}{60}{}%
+\contentsline {subsection}{\numberline {3.1.5}Consumers}{60}{}%
+\contentsline {subsubsection}{Push vs Pull}{60}{}%
+\contentsline {subsubsection}{Consumer Position (Offset)}{61}{}%
+\contentsline {subsubsection}{Detecting Consumer Failure}{61}{}%
+\contentsline {subsection}{\numberline {3.1.6}Brokers}{61}{}%
+\contentsline {subsection}{\numberline {3.1.7}Writing Records to partitions}{62}{}%
+\contentsline {subsubsection}{Partition key}{62}{}%
+\contentsline {subsubsection}{Kafka decide the partition}{63}{}%
+\contentsline {subsubsection}{Writing a customer partition}{63}{}%
+\contentsline {subsection}{\numberline {3.1.8}Reading records from a partition}{63}{}%
+\contentsline {subsection}{\numberline {3.1.9}Consumer Groups}{64}{}%
+\contentsline {subsection}{\numberline {3.1.10}Message Delivery Semnatics}{65}{}%
+\contentsline {chapter}{\numberline {4}Design and Architecture of EmbPub}{68}{}%
+\contentsline {section}{\numberline {4.1}Architecture}{69}{}%
+\contentsline {section}{\numberline {4.2}Class interactions}{70}{}%
+\contentsline {section}{\numberline {4.3}Class Diagrams}{72}{}%
+\contentsline {subsection}{\numberline {4.3.1}Topic Manager}{72}{}%
+\contentsline {subsection}{\numberline {4.3.2}QoS}{73}{}%
+\contentsline {subsection}{\numberline {4.3.3}Communication}{75}{}%
+\contentsline {subsection}{\numberline {4.3.4}Domain level}{76}{}%
+\contentsline {section}{\numberline {4.4}Sequence Diagram}{77}{}%
+\contentsline {subsection}{\numberline {4.4.1}Consumer asking for a record}{78}{}%
+\contentsline {subsection}{\numberline {4.4.2}Publisher sending a record}{78}{}%
+\contentsline {subsection}{\numberline {4.4.3}Synchronization of the cluster status}{79}{}%
+\contentsline {subsection}{\numberline {4.4.4}Broker receiving a record}{81}{}%
+\contentsline {subsection}{\numberline {4.4.5}Consumer subscribing to a topic}{81}{}%
+\contentsline {section}{\numberline {4.5}Results}{82}{}%
+\contentsline {subsection}{\numberline {4.5.1}Direct Communication}{83}{}%
+\contentsline {subsubsection}{RTOS Cores}{83}{}%
+\contentsline {subsubsection}{Linux and RTOS cores}{84}{}%
+\contentsline {subsection}{\numberline {4.5.2}Broker Communication}{84}{}%
 \contentsline {subsubsection}{RTOS cores}{84}{}%
-\contentsline {subsubsection}{Push}{84}{}%
-\contentsline {subsubsection}{Pull}{85}{}%
-\contentsline {subsection}{\numberline {4.5.3}Linux on Cortex-A53}{85}{}%
-\contentsline {subsubsection}{Push}{86}{}%
+\contentsline {subsubsection}{Push}{85}{}%
 \contentsline {subsubsection}{Pull}{86}{}%
+\contentsline {subsection}{\numberline {4.5.3}Linux on Cortex-A53}{86}{}%
+\contentsline {subsubsection}{Push}{87}{}%
+\contentsline {subsubsection}{Pull}{87}{}%
+\contentsline {section}{\numberline {4.6}Result Analysis and future extensions}{87}{}%

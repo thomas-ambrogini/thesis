@@ -1,12 +1,27 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/Debian)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
 A level-1 auxiliary file: Title_page/titlepage.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: Dedication/dedication.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: Abstract/abstract.aux
+Reallocating 'name_of_file' (item size: 1) to 30 items.
+A level-1 auxiliary file: Introduction/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapter1/chapter1.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapter2/chapter2.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapter3/chapter3.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapter4/chapter4.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: Conclusion/conclusion.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 26 items.
 Database file #1: Bibliography/bibliography.bib
 Warning--to sort, need author or key in GNUMake
 Warning--to sort, need author or key in freeRTOS
@@ -14,6 +29,11 @@ Warning--to sort, need author or key in embedded_linux_windriver
 Warning--to sort, need author or key in linux_embedded_ubuntu
 Warning--to sort, need author or key in linux_real_time
 Warning--to sort, need author or key in yocto
+Warning--to sort, need author or key in TI_site
+Warning--to sort, need author or key in Renesas_site
+Warning--to sort, need author or key in Xilinx_site
+Warning--to sort, need author or key in Ingenic_site
+Warning--to sort, need author or key in Rockchip_site
 Warning--to sort, need author or key in AM64_datasheet
 Warning--to sort, need author or key in ARM_M4
 Warning--to sort, need author or key in Technical_reference_AM64
@@ -22,45 +42,45 @@ Warning--to sort, need author or key in M4F_technical_reference
 Warning--to sort, need author or key in kafka_documentation
 Warning--empty publisher in embedded_systems_architecture
 Warning--empty publisher in Pub/Sub_pattern
-You've used 19 entries,
+You've used 24 entries,
             2118 wiz_defined-function locations,
-            588 strings with 6182 characters,
-and the built_in function-call counts, 3737 in all, are:
-= -- 348
-> -- 89
+            612 strings with 6773 characters,
+and the built_in function-call counts, 4552 in all, are:
+= -- 428
+> -- 94
 < -- 0
-+ -- 45
++ -- 50
 - -- 24
-* -- 172
-:= -- 534
-add.period$ -- 45
-call.type$ -- 19
-change.case$ -- 64
+* -- 202
+:= -- 624
+add.period$ -- 55
+call.type$ -- 24
+change.case$ -- 79
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 165
-empty$ -- 433
+cite$ -- 43
+duplicate$ -- 200
+empty$ -- 548
 format.name$ -- 24
-if$ -- 856
+if$ -- 1061
 int.to.chr$ -- 0
-int.to.str$ -- 19
+int.to.str$ -- 24
 missing$ -- 12
-newline$ -- 86
+newline$ -- 106
 num.names$ -- 14
-pop$ -- 149
+pop$ -- 189
 preamble$ -- 1
-purify$ -- 50
+purify$ -- 60
 quote$ -- 0
-skip$ -- 129
+skip$ -- 164
 stack$ -- 0
-substring$ -- 124
-swap$ -- 19
+substring$ -- 149
+swap$ -- 24
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
-warning$ -- 14
+type$ -- 86
+warning$ -- 19
 while$ -- 15
-width$ -- 21
-write$ -- 167
-(There were 14 warnings)
+width$ -- 26
+write$ -- 207
+(There were 19 warnings)

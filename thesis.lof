@@ -1,57 +1,57 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Microprocessor and microcontroller architectures}}{2}{}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Cross Compilation process}}{4}{}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Steps needed for the system boot}}{7}{}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Multi stage bootloader}}{9}{}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Task states}}{12}{}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Embedded Linux Architecture}}{13}{}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Architecture of Real Time Linux}}{15}{}%
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Yocto Stack}}{16}{}%
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Poky build tool stack}}{17}{}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Microprocessor and microcontroller architectures}}{3}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Cross Compilation process}}{5}{}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Steps needed for the system boot}}{8}{}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Multi stage bootloader}}{10}{}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Task states}}{13}{}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Embedded Linux Architecture}}{14}{}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Architecture of Real Time Linux}}{16}{}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Yocto Stack}}{17}{}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Poky build tool stack}}{18}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Board analyzed}}{19}{}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces AM64x architecture}}{20}{}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Cortex-A53 MPCore architecture with 4 cores}}{22}{}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces A53SS Block Diagram}}{23}{}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces R5FSS Block Diagram}}{24}{}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces M4FSS Block Diagram}}{25}{}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces PRUICSSG Architecture}}{27}{}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces MSRAM layout}}{29}{}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces DDR layout with linux running on A53 core}}{30}{}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces DDR layout with RTOS or baremetal application on A53 core}}{31}{}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Networking Software Stack}}{32}{}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces IPC mechanisms}}{33}{}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces RPMsg library stack}}{36}{}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces PRU IPC}}{37}{}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Components for Linux and PRU IPC}}{37}{}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Steps needed to send a message from the ARM core to the PRU}}{38}{}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Steps needed to send a message from the PRU to the ARM core}}{45}{}%
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Initial boot flow of the SoC}}{45}{}%
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Flow of the boot process}}{46}{}%
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Steps done by the SBL}}{47}{}%
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Components needed for the boot of Linux}}{47}{}%
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Linux Boot Flow}}{48}{}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Board analyzed}}{20}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces AM64x architecture}}{21}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Cortex-A53 MPCore architecture with 4 cores}}{23}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces A53SS Block Diagram}}{24}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces R5FSS Block Diagram}}{25}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces M4FSS Block Diagram}}{26}{}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces PRUICSSG Architecture}}{28}{}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces MSRAM layout}}{30}{}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces DDR layout with linux running on A53 core}}{32}{}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces DDR layout with RTOS or baremetal application on A53 core}}{33}{}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Networking Software Stack}}{34}{}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces IPC mechanisms}}{35}{}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces RPMsg library stack}}{37}{}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces PRU IPC}}{38}{}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Components for Linux and PRU IPC}}{38}{}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Steps needed to send a message from the ARM core to the PRU}}{39}{}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Steps needed to send a message from the PRU to the ARM core}}{46}{}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Initial boot flow of the SoC}}{46}{}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Flow of the boot process}}{47}{}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Steps done by the SBL}}{48}{}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Components needed for the boot of Linux}}{48}{}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Linux Boot Flow}}{49}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces General architecture of a pub/sub middleware}}{50}{}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Apache Kafka Architecture}}{52}{}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Kafka Partitions}}{54}{}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a partition}}{55}{}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Partitions with the offset for every record}}{56}{}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Producer publishing data}}{57}{}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Distribution of messages based on partition key}}{61}{}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Example of reading a partition from two consumers}}{63}{}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Consumer groups reading from the Kafka cluster}}{64}{}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Kafka degree of parallelism}}{65}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces General architecture of a pub/sub middleware}}{51}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Apache Kafka Architecture}}{53}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kafka Partitions}}{55}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Structure of a partition}}{56}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Partitions with the offset for every record}}{57}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Producer publishing data}}{58}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Distribution of messages based on partition key}}{62}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Example of reading a partition from two consumers}}{64}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Consumer groups reading from the Kafka cluster}}{65}{}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Kafka degree of parallelism}}{66}{}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Layered architecture of the solution}}{68}{}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Layered architecture of the solution}}{70}{}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Class diagram of the topic manager layer}}{71}{}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Class diagram of the QoS layer}}{73}{}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Class diagram of the communication layer}}{74}{}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Class diagram of domain of the middleware}}{76}{}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Sequence diagram of a consumer asking for a record}}{77}{}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Sequence diagram of a producer publishing a record}}{78}{}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Sequence diagram of the configurer operations done for the cluster status synchronization}}{79}{}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Sequence diagram of the system manager operations done for the cluster status synchronization}}{79}{}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Sequence diagram of a broker receiving a record to store}}{80}{}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Sequence diagram of a consumer subscribing to a topic handled by a broker}}{81}{}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Layered architecture of the solution}}{69}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Layered architecture of the solution}}{71}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Class diagram of the topic manager layer}}{72}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Class diagram of the QoS layer}}{74}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Class diagram of the communication layer}}{75}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Class diagram of domain of the middleware}}{77}{}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Sequence diagram of a consumer asking for a record}}{78}{}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Sequence diagram of a producer publishing a record}}{79}{}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Sequence diagram of the configurer operations done for the cluster status synchronization}}{80}{}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sequence diagram of the system manager operations done for the cluster status synchronization}}{80}{}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Sequence diagram of a broker receiving a record to store}}{81}{}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Sequence diagram of a consumer subscribing to a topic handled by a broker}}{82}{}%

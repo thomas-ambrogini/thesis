@@ -4,7 +4,7 @@
 % ********************************** CHAPTER 4 ********************************
 % *****************************************************************************
 
-\chapter{Implementation}
+\chapter{Design and Architecture of EmbPub}
 
 In the context of distributed systems, middleware for pub/sub communication
 plays a fundamental role, as discussed in the previous chapter. This thesis
@@ -14,12 +14,12 @@ heterogeneous processors, can be perceived as a form of distributed system.
 While substantial progress has been made in the domain of pub/sub platforms for
 traditional distributed systems, the adaptation of such platforms to satisfy
 the needs of embedded systems is relatively unexplored territory.
-This presents an oppotune starting point leveraging existing knowledge while
+This presents an opportune starting point leveraging existing knowledge while
 navigating the unique challenges inherent in embedded systems.
 
 As seen in the initial chapters, embedded systems have different requisites
 from traditional systems.
-Solutions in this domain must take into consideratio low latency requirements,
+Solutions in this domain must take into consideration low latency requirements,
 safety considerations, and other specific needs for the specific application.
 
 The primary goal of this project is to realize a pub/sub platform that exploits
@@ -33,7 +33,7 @@ platform created illustrating the architectural choices.
 
 The proposed pub/sub middleware starts with a layer architecture, carefully
 structured to address the unique challenges posed by embedded systems. This
-section illustrates the key components residin in each layer, providing
+section illustrates the key components residing in each layer, providing
 information about their roles, interactions, and contributions to the overall
 efficacy of the communication framework.
 
@@ -45,7 +45,7 @@ efficacy of the communication framework.
 
 At the top of the architecture resides the Application layer, the interface
 through which end-users and system components interact with the pub/sub
-middleware. The Application layer provides a user-friendly inteface for
+middleware. The Application layer provides a user-friendly interface for
 configuring, consuming and producing messages within the ecosystem.
 This layer is further subdivided into essential elements:
 
@@ -53,7 +53,7 @@ This layer is further subdivided into essential elements:
     \item   Configurer: Responsible for configuring and maintain the
             information about the other components of the system.
     \item   Consumer: Facilitates the consumption of messages and the
-            interactions needed for retreiving messages.
+            interactions needed for retrieving messages.
     \item   Broker: Serves as intermediary between producers and consumers,
             efficiently routing messages based on established topic
             subscription.
@@ -63,7 +63,7 @@ This layer is further subdivided into essential elements:
 
 Under the Application layer, the Topic Manager layer serves as the manager of
 all topic-related operations. The layer manages the creation, deletion and
-tracks topics within the system. The seamsless coordination of topics is one
+tracks topics within the system. The seamless coordination of topics is one
 of the most important element, making the Topic Manager one of the most
 important element to provide flexible and dynamic communication infrastructure.
 
@@ -85,7 +85,7 @@ The other component at the base of the architecture is the Communication layer.
 It plays a fundamental role for facilitating interaction among distributed
 components within embedded systems.
 Leveraging the APIs provided by Texas Instruments, this layer ensures robust
-and efficient communication between diffeerent processors.
+and efficient communication between different processors.
 
 \section{Class interactions}
 
@@ -93,8 +93,8 @@ The image (figure \ref{fig:class_diagram}) details the different components
 that enable the exchange of messages between producers and consumers in a
 distributed environment.
 
-The architecture is composed of vrious entities, including a cluster,
-consumer groups, brokers, replicas, partitions, records, prodcuers and
+The architecture is composed of various entities, including a cluster,
+consumer groups, brokers, replicas, partitions, records, producers and
 consumers. 
 
 \begin{figure}[H]
@@ -143,9 +143,9 @@ the integrity of the messaging system.
 \end{figure}
 
 The topic manager layer interacts with the broker component to maintain the
-state of topics, including the creation, deletetion and modification.
+state of topics, including the creation, deletion and modification.
 It also manages subscriptions, ensuring that consumers are notified of messages
-published to topics they are subscribed to. Additionaly, the topic manager
+published to topics they are subscribed to. Additionally, the topic manager
 layer handles message routing, directing messages to the appropriate partitions
 within each topic.
 
@@ -184,13 +184,13 @@ The components are:
 \begin{itemize}
     \item   ReplicaHandler: this component is used for replicating topics to
             ensure high availability and durability of data. It takes a
-            TopicMetadata object as a paramater, which contains information
+            TopicMetadata object as a parameter, which contains information
             about the topic to be replicated. The ReplicaHandler then
             replicates the topic to a specified number of brokers.
     \item   DistributionLogic: this component is responsible for distributing
             messages to consumer groups in a way that meets the QoS
             requirements of the application. It takes a ConsumerGroup object
-            as a paramter, which contains information about te consumers
+            as a paramter, which contains information about the consumers
             belonging to the group that has to be serviced.
             The DistributionLogic then distributes the messages to the consumer
             group in a way that ensures that all messages are eventually
@@ -200,7 +200,7 @@ The components are:
 The QoS layer has the necessity to interact with other elements of the system
 in order to work. In particular, the complexity of the above layer, the topic
 manager, gives the possibility to simplify this layer, which will exploits
-the classes given by the communicaiton layer to perform the exchange of
+the classes given by the communication layer to perform the exchange of
 messages in a simple way.
 
 \subsection{Communication}
@@ -226,7 +226,7 @@ The components seen in the class diagram
             instances of IPCCommunication or TCPCommunication objects. It takes
             a CommunicationType parameter.
     \item   CommunicationType: this enumeration defines the two types of
-            communication that cna be created: IPC or TCP.
+            communication that can be created: IPC or TCP.
     \item   IPCCommunication: This class is used for communication between
             processors on the same device. It provides methods for sending and
             receiving messages.
@@ -239,7 +239,7 @@ The components seen in the class diagram
 
 The image below (figure \ref{fig:class_diagram_domain}) shows all the classes
 that compose the domain of the system.
-The domain classes can be used by all the layer of the application (primarly
+The domain classes can be used by all the layer of the application (primarily
 from the top level layers) and they contain information of the specific class
 and the interaction with the other elements.
 
@@ -261,8 +261,8 @@ system.
 The sequence diagram depicts the interaction between a message consumer and
 the rest of the system. The consumer initiates the interaction by requesting
 a TopicProxy from the TopicFactory.
-The patter proxy helps to hide all the operations that will be done underneath
-to perfrom the commuincation between the different processors, making it seem
+The pattern proxy helps to hide all the operations that will be done underneath
+to perform the communication between the different processors, making it seem
 like a local communication.
 The consumer then establishes a communication channel with the broker
 containing the interested topic using the CommunicationFactory.
@@ -326,7 +326,7 @@ sent by the producers, in a broker.
 \subsection{Consumer subscribing to a topic}
 
 The subscription process involves a consumer expressing its interest in a
-specific topic, intiiating a series of interaction with the underlying system.
+specific topic, initiating a series of interaction with the underlying system.
 The Consumer class uses the usual TopicProxy to communicate with the broker
 holding the needed topic.
 
@@ -340,18 +340,18 @@ holding the needed topic.
 
 \section{Results}
 
-The last phase of the project involved the development and performance testing
-the performances of the implemented system.
+The last phase of the project involved the development and testing
+the performance of the implemented system.
 The focus of the testing was on measuring the time required for message
 exchanges among different system elements.
 
 Various tests were conducted, with the nature of each test contingent on the
 processors involved in the communication.
-The specific test perormed include:
+The specific test performed include:
 
 \begin{enumerate}
     \item   Time needed for the direct communication between real time cores
-            and the linux core.
+            and the Linux core.
     \item   Time needed for the exchange of messages using the implemented
             system varying in the processor used and in the number of
             consumers and producers.
@@ -362,17 +362,17 @@ understand the system performance under different conditions.
 
 \subsection{Direct Communication}
 
-The direct commuication has been tested by using the Communication layer
+The direct communication has been tested by using the Communication layer
 realized previously.
 Specifically, communication between different processors relied on the
 RemoteProcessorMessage (RPMsg) function provided by Texas Instruments.
 This API proves to be a robust solution for facilitating efficient
-communication in a multi-core environemnt. RPMsg exeld in establishing direct
-communication channles between real-time cores and other cores within a
+communication in a multi-core environemnt. RPMsg excels in establishing direct
+communication channels between real-time cores and other cores within a
 heterogeneous system. Leveraging this API ensures that the communication
 channels are not only reliable but also characterized by low latency.
 
-Within the RPMessage library, each packet is equipeed with a 16 byte header,
+Within the RPMessage library, each packet is equipped with a 16 byte header,
 shaping the structure of the communication. Consequently, the actual message
 payload size is constrained by MAX\_MSG\_DIMENSION - 16 bytes.
 
@@ -440,7 +440,7 @@ In this section there are the measurements obtained by using the pub/sub
 middleware. There are two modes which are tested:
 
 \begin{itemize}
-    \item   Push: after that a producer sends a message to a brokre, the broker
+    \item   Push: after that a producer sends a message to a broker, the broker
             sends it directly to all the subscribed consumers.
     \item   Pull: the consumers have to ask for the message to be delivered.
 \end{itemize}
@@ -500,10 +500,10 @@ Consumer 3 Time (in us) & 539.4 & 510.1 & 634.6 & 754.2 & 1063.6 & 1283.4 \\
 The variations in time measurements among different consumers, which can be
 seen in \ref{table:broker_communication_RTOS_cores_multiple_consumers_push}
 can be attributed to the system's booting sequence.
-During the boot process, the initialiation of memory areas can differ,
+During the boot process, the initialization of memory areas can differ,
 consequently leading to variations in the prioritization of message delivery.
 It becomes apparent that the order in which processes are booted significantly
-influences the subsequent beavior of the system, resulting in different timing
+influences the subsequent behavior of the system, resulting in different timing
 outcomes across consumers.
 
 \subsubsection{Pull}
@@ -541,14 +541,14 @@ Consumer M4 Time (in us) & 372.3 & 411.5 & 490.4 & 589.9 & 843.8 & 1236.7 \\
 
 \subsection{Linux on Cortex-A53}
 
-Finally, the RTT for messages using the middleware in an heterogenous
-environemnt is tested, adding the Cortex-A53 with Linux to the real-time cores.
+Finally, the RTT for messages using the middleware in an heterogeneous
+environment is tested, adding the Cortex-A53 with Linux to the real-time cores.
 
 \subsubsection{Push}
 
 \begin{table}[H]
 \centering
-\caption{Round trip time results using the middleware betewen Linux and RTOS
+\caption{Round trip time results using the middleware between Linux and RTOS
     cores in push mode}
 \label{table:broker_communication_linux_RTOS_cores_push}
 \begin{tabular}{lccccc}
@@ -565,7 +565,7 @@ Consumer Time (in us) & 97 & 127 & 191 & 264 & 393 \\
 
 \begin{table}[H]
 \centering
-\caption{Round trip time results using the middleware betewen Linux and RTOS
+\caption{Round trip time results using the middleware between Linux and RTOS
     cores in pull mode}
 \label{table:broker_communication_linux_RTOS_cores_pull}
 \begin{tabular}{lccccc}
@@ -577,4 +577,23 @@ Consumer Time (in us) & 264 & 292 & 322 & 406 & 565 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\section{Result Analysis and future extensions}
+
+The observed results in the experimental phase of the thesis reveal distinct patterns in the performance of the implemented pub/sub platform for embedded systems.
+
+In the context of direct communication, the lower round-trip times (RTT) between real-time cores compared to those involving Linux cores underscore the efficiency of direct communication channels, particularly leveraging the RemoteProcessorMessage (RPMsg) framework. However, the middleware introduces additional services, contributing to a higher RTT. The intricacies of the Linux operating system and its IPC library, while providing a centralized access point for services, result in comparatively higher communication latencies.
+
+Notably, the push mode in broker communication demonstrates symmetrical RTT for single consumers and producers, as expected, while variations in multiple consumer scenarios highlight the system's booting sequence impact. In pull mode, the flexibility and on-demand processing capability contribute to advantages despite increased messaging overhead. Overall, the results reflect a trade-off between direct communication efficiency and the richer feature set provided by the middleware, while Linux's higher RTT emphasizes the complexities introduced by the operating system.
+
+For the end of the thesis, it is important to outline potential directions for
+future investigations 
+
+First and foremost, exploring the seamless integration of the pub/sub middleware with emerging edge computing paradigms represents a crucial direction. Investigating how the middleware can enhance communication efficiency and resource utilization in edge computing scenarios holds the potential to address the unique challenges presented by distributed computing at the network's periphery. 
+
+Additionally, security and reliability enhancements are essential, with a focus on lightweight cryptographic protocols and fault-tolerant mechanisms to fortify communication channels and ensure system robustness.
+
+Furthermore, the integration of artificial intelligence techniques with the pub/sub middleware offers an exciting frontier. Enabling intelligent data filtering, prediction, and adaptation in response to dynamic changes in the embedded environment can significantly elevate the platform's adaptability and responsiveness. 
+
+Finally, the introduction of new protocols, potentially at an industrial level, can have a big impact in the automation industry. Such protocols can be customized to meet specific industry requirements, ensuring compatibility with diverse embedded applications and expanding the platform's utility in various domains.
 

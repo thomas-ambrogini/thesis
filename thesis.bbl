@@ -37,6 +37,10 @@ Tightly coupled memories documentation.
 Am64x datasheet.
 \newblock \url{https://www.ti.com/lit/ds/symlink/am6412.pdf}, 2023.
 
+\bibitem{TI_site}
+Am64x sitara™ processors.
+\newblock \url{https://www.ti.com/product/AM6442}, 2023.
+
 \bibitem{kafka_documentation}
 Apache kafka documentation.
 \newblock \url{https://kafka.apache.org/documentation/}, 2023.
@@ -49,9 +53,31 @@ freertos site.
 Gnu make site.
 \newblock \url{https://www.gnu.org/software/make/}, 2023.
 
+\bibitem{Rockchip_site}
+Rockchip rk3xx series.
+\newblock
+  \url{https://www.rock-chips.com/a/en/News/Press_Releases/index-89-9.html},
+  2023.
+
+\bibitem{Renesas_site}
+Rz/g2 mpus.
+\newblock
+  \url{https://www.solid-run.com/embedded-industrial-iot/renesas-rz-family/},
+  2023.
+
+\bibitem{Ingenic_site}
+X2xx series.
+\newblock \url{http://www.ingenic.com.cn/}, 2023.
+
 \bibitem{yocto}
 Yocto project.
 \newblock \url{https://www.yoctoproject.org/}, 2023.
+
+\bibitem{Xilinx_site}
+Zynq ultrascale+ mpsocs.
+\newblock
+  \url{https://www.xilinx.com/products/silicon-devices/soc/zynq-7000.html},
+  2023.
 
 \bibitem{abbott2011linux}
 Doug Abbott.
