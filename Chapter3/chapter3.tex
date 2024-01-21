@@ -24,7 +24,7 @@ Subscribers have the possibility to express their interest in a type of event
 or a pattern of events, and they are notified when a publisher generate an event
 which they are interested in.
 
-The fundamental system model for publish/subscribe interaction, (Figure 
+The fundamental system model for publish/subscribe interaction (Figure 
 \ref{fig:pub_sub_general_architecture}) relies on an event notification service
 providing storage and management for subscriptions and efficient delivery of
 events. Such an event service represents a neutral mediator between publishers,
@@ -271,7 +271,7 @@ instances.
     \caption{Example of Producer publishing data}
 \end{figure}
 
-The producer consists of a pool of buffer space that holds records that haven't
+The producer consists of a pool of buffer space that holds records that have not
 yet been transmitted to the server as well as a background I/O thread that is
 responsible for turning these records into requests and transmitting them to
 the cluster.
@@ -396,7 +396,7 @@ considered dead and its partitions will be reassigned.
 \subsection{Brokers}
 
 Kafka cluster consists of one or more servers, called brokers, which execute
-Kafka. Using a single broker for an application is possible, but it doesn't
+Kafka. Using a single broker for an application is possible, but it does not
 allow to exploit all the services that Kafka offers, like data replication.
 
 \subsection{Writing Records to partitions}
@@ -429,13 +429,13 @@ order in which they were sent.
 \end{figure}
 
 The data distribution of the partition key can lead to broker skew if keys are
-not well distributed. It's important to use a partition key to put related
+not well distributed. It is important to use a partition key to put related
 events together in the same partition in the exact order in which they were
 sent.
 
 \subsubsection{Kafka decide the partition}
 
-If a producer doesn't specify a partition key when producing a record, Kafka
+If a producer does not specify a partition key when producing a record, Kafka
 will use a round-robin partition assignment. Those records will be written
 evenly, across all partitions of a particular topic.
 However, if no partition key is used, the ordering of records can not be
@@ -506,8 +506,8 @@ the number of partitions of that topic.
     \caption{Kafka degree of parallelism}
 \end{figure}
 
-The number of consumers don't govern the degree of parallelism of a topic.
-It's the number of partitions that governs the degree of parallelism.
+The number of consumers do not govern the degree of parallelism of a topic.
+It is the number of partitions that governs the degree of parallelism.
 
 \subsection{Message Delivery Semnatics}
 
@@ -522,8 +522,8 @@ level of assurance:
 \end{itemize}
 
 When a message is produced in Kafka, ensuring these semantics involves
-committing to the log. Once a messages is committed, it won't be lost as long
-as one broker replicates the partition where it's written.
+committing to the log. Once a messages is committed, it will not be lost as long
+as one broker replicates the partition where it is written.
 Different use cases have different needs of semantic guarantees. Kafka allows
 specifying the desired level of durability, but stronger semantics can increase
 communication time, which might not suit latency-sensitive applications.

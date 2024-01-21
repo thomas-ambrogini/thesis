@@ -481,7 +481,7 @@ therefore constrained in terms of features.
 
 To achieve low latency, the underlying implementation employs hardware
 mechanisms to interrupt the receiving CPU cores. Additionaly, it utilizes
-hardware FIFOs when available, and in cases where hardware FIFOs aren't
+hardware FIFOs when available, and in cases where hardware FIFOs are not
 present, it resorts to using software FIFOs based on fast internal RAM to
 transport message values.
 
@@ -523,7 +523,7 @@ delivered to, allowing for multiple communication channels between CPUs.
 The RPMsg char driver serves as an interace for user-space processes to
 access RPMsg endpoints. These endpoints are used for communication between
 different applications and can be uniquely accessed by requesting specific
-interactions with the remote service. What's important to note is that the
+interactions with the remote service. What is important to note is that the
 RPMsg char driver supports the creation of multiple endpoints for each RPMsg
 char devicce that has been initialized. This means that a single RPMsg char
 device can be used for different instances or applications.
@@ -531,7 +531,7 @@ device can be used for different instances or applications.
 When these endpoints are created, they appear as individual character devices
 within the /dev directory. Underlying this setup, the RPMsg bus operates on top
 of the VirtIO bus. Each time a VirtIO name service announcement message is
-sent, a new RPMsg device is generated, and it's intended to be bound to an
+sent, a new RPMsg device is generated, and it is intended to be bound to an
 RPMsg driver. These RPMsg devices are dynamically generated, initiated by an
 announcement message from the remote processor. This message contains
 information about the service's name, source, and destination addresses.

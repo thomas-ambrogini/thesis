@@ -74,6 +74,11 @@ Daniele Lacamera.
 \newblock {\em Embedded systems architecture}.
 \newblock 2023.
 
+\bibitem{raptis2023survey}
+Theofanis~P Raptis and Andrea Passarella.
+\newblock A survey on networked data streaming with apache kafka.
+\newblock {\em IEEE access}, 2023.
+
 \bibitem{salvador2014embedded}
 Otavio Salvador and Daiane Angolini.
 \newblock {\em Embedded Linux Development with Yocto Project}.

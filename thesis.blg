@@ -22,45 +22,45 @@ Warning--to sort, need author or key in M4F_technical_reference
 Warning--to sort, need author or key in kafka_documentation
 Warning--empty publisher in embedded_systems_architecture
 Warning--empty publisher in Pub/Sub_pattern
-You've used 18 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            583 strings with 6055 characters,
-and the built_in function-call counts, 3495 in all, are:
-= -- 325
-> -- 76
+            588 strings with 6182 characters,
+and the built_in function-call counts, 3737 in all, are:
+= -- 348
+> -- 89
 < -- 0
-+ -- 39
-- -- 20
-* -- 160
-:= -- 489
-add.period$ -- 42
-call.type$ -- 18
-change.case$ -- 59
++ -- 45
+- -- 24
+* -- 172
+:= -- 534
+add.period$ -- 45
+call.type$ -- 19
+change.case$ -- 64
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 155
-empty$ -- 416
-format.name$ -- 20
-if$ -- 808
+cite$ -- 33
+duplicate$ -- 165
+empty$ -- 433
+format.name$ -- 24
+if$ -- 856
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 11
-newline$ -- 81
-num.names$ -- 12
-pop$ -- 144
+int.to.str$ -- 19
+missing$ -- 12
+newline$ -- 86
+num.names$ -- 14
+pop$ -- 149
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 50
 quote$ -- 0
-skip$ -- 121
+skip$ -- 129
 stack$ -- 0
-substring$ -- 118
-swap$ -- 18
+substring$ -- 124
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 62
+type$ -- 66
 warning$ -- 14
-while$ -- 13
-width$ -- 20
-write$ -- 157
+while$ -- 15
+width$ -- 21
+write$ -- 167
 (There were 14 warnings)

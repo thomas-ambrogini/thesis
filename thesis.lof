@@ -43,3 +43,15 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Consumer groups reading from the Kafka cluster}}{64}{}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Kafka degree of parallelism}}{65}{}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Layered architecture of the solution}}{68}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Layered architecture of the solution}}{70}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Class diagram of the topic manager layer}}{71}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Class diagram of the QoS layer}}{73}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Class diagram of the communication layer}}{74}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Class diagram of domain of the middleware}}{76}{}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Sequence diagram of a consumer asking for a record}}{77}{}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Sequence diagram of a producer publishing a record}}{78}{}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Sequence diagram of the configurer operations done for the cluster status synchronization}}{79}{}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sequence diagram of the system manager operations done for the cluster status synchronization}}{79}{}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Sequence diagram of a broker receiving a record to store}}{80}{}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Sequence diagram of a consumer subscribing to a topic handled by a broker}}{81}{}%
