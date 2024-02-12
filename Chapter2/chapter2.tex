@@ -64,7 +64,7 @@ AM64x combines two instances of Sitara's gigabit TSN-enabled PRU-ICSSG,
 two Arm Cortex-A53 cores, four Cortex-R5F MCUs, and a Cortex-M4F MCU
 domain.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{am64_architecture.png}
     \caption{AM64x architecture}
@@ -132,7 +132,7 @@ It is based on the symmetric multiprocessor (SMP) architecture, where all
 cores have equal access to system resources like memory and peripherals.
 
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{A53_MPCore_architecture.png}
     \caption{Cortex-A53 MPCore architecture with 4 cores}
@@ -148,7 +148,7 @@ execution state. It also has the possibility to execute 32-bit applications
 with the AArch32 state for retrocompatibility with the existing ArmV7-A
 applications.
 
-\begin{figure}[htb]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{A53_diagram.png}
     \caption{A53SS Block Diagram}
@@ -174,7 +174,7 @@ The board selected for the project has two R5F subsystems, a dual-core
 implementation of the R5F processor, which is a version of the R5 processor
 with the floating point unit extension.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{R5FSS_diagram.png}
     \caption{R5FSS Block Diagram}
@@ -223,7 +223,7 @@ processed.
 The last core of the system is an Arm Cortex-M4F running safety processing.
 Similar to the R5F, also the M4F has the extension for floating point unit.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{M4FSS_diagram.png}
     \caption{M4FSS Block Diagram}
@@ -276,7 +276,7 @@ PRU cores are mainly dedicated to industrial communication but can be harnessed
 for other custom applications, freeing the main Arm cores for more general
 control and data processing.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{PRUICSSG_architecture.png}
     \caption{PRUICSSG Architecture}
@@ -364,7 +364,7 @@ This memory layout offers flexibility for applications. When using only one
 core, applications can utilize the private banks reserved for other cores as
 needed.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{MSRAM_layout.png}
     \caption{MSRAM layout}
@@ -402,9 +402,9 @@ on the cores.
 If embedded Linux is running on the A53 core, the DDR is divided into sections,
 one for every core, which has to be used in the RTOS application.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{DDR_linux.png}
+    \includegraphics[width=0.4\textwidth]{DDR_linux.png}
     \caption{DDR layout with linux running on A53 core}
 \end{figure}
 
@@ -413,9 +413,9 @@ application needs to be loaded into DDR for booting.
 The DDR is not allocated in this case, and it can be used by the all the cores,
 specifying it in the linker file.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{DDR_without_linux.png}
+    \includegraphics[width=0.4\textwidth]{DDR_without_linux.png}
     \caption{DDR layout with RTOS or baremetal application on A53 core}
 \end{figure}
 
@@ -443,7 +443,7 @@ Networking is supported using the following hardware peripherals:
             RGMII and MII modes.
 \end{itemize}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{networking_software_architecture.png}
     \caption{Networking Software Stack}
@@ -458,7 +458,7 @@ These cores may need to communicate and share daa with each other to realize a
 larger system-level application or to coordinate their activities.
 IPC mechanisms facilitate this communication.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{IPC.png}
     \caption{IPC mechanisms}
@@ -543,7 +543,7 @@ represents the remote service. Once a relevant RPMsg driver is registered, it
 is immediately probed by the bus, and this allows both sides to begin
 exchanging messages.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{RPMsg_stack.png}
     \caption{RPMsg library stack}
@@ -559,7 +559,7 @@ latency. The communication is done in the form of blocks of data transfer in
 one exchange. Options are available for configuring multiple buffers and blocks
 per buffer.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{IPC_PRU.png}
     \caption{PRU IPC}
@@ -590,7 +590,7 @@ On the PRU side, an RPMsg library is provided in the Software Support Package
 that aims to abstract the communication, providing developers with send/receive
 APIs for simple communication with other cores.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{IPC_linux_PRU_components.png}
     \caption{Components for Linux and PRU IPC}
@@ -598,9 +598,9 @@ APIs for simple communication with other cores.
 
 \subsubsection{ARM to PRU}
 
-\begin{figure}[ht]
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{IPC_linux_ARM_to_PRU.png}
+    \includegraphics[width=0.4\textwidth]{IPC_linux_ARM_to_PRU.png}
     \caption{Steps needed to send a message from the ARM core to the PRU}
 \end{figure}
 
@@ -635,9 +635,9 @@ Steps for the PRU core:
 
 \subsubsection{PRU to ARM}
 
-\begin{figure}[ht]
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=0.6\textwidth]{IPC_linux_PRU_to_ARM.png}
+    \includegraphics[width=0.4\textwidth]{IPC_linux_PRU_to_ARM.png}
     \caption{Steps needed to send a message from the PRU to the ARM core}
 \end{figure}
 
@@ -734,7 +734,7 @@ executes the R5 ROM code, and eventually it will run the SBL.
 The boot pins are a set of pins in the board which specifies where the SBL
 image is located and how the peripheral storing it is configured. 
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{boot_initial_flow.png}
     \caption{Initial boot flow of the SoC}
@@ -757,7 +757,7 @@ SYSFW services to check and configure the rest of the device.
 
 \subsubsection{Boot Process flow}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{boot_process_flow.png}
     \caption{Flow of the boot process}
@@ -778,7 +778,7 @@ of R5. This restart occurs with the Public ROM code fully disconnected.
 Finally, the execution of the Public ROM code is triggered after a cold or warm
 reset, marking the completion of the boot process.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{boot_sbl_flow.png}
     \caption{Steps done by the SBL}
@@ -855,13 +855,13 @@ through the boot pins.
             initializing the system hardware, which will run on the A53 core.
 \end{enumerate}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{boot_linux_components.png}
     \caption{Components needed for the boot of Linux}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{boot_linux_flow.jpg}
     \caption{Linux Boot Flow}

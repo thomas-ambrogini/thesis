@@ -1,0 +1,59 @@
+\documentclass[
+a4paper,
+12pt,
+oneside,
+openright
+]{book}
+
+% ******************************** Preamble ************************************
+
+\input{Preamble/preamble}
+
+% *********************** Thesis Information & Metadata ************************
+
+\input{thesis-info}
+
+% ***************************** Front Matter ***********************************
+
+\begin{document}
+
+\frontmatter
+
+% \maketitle
+\include{Title_page/titlepage}
+\include{Dedication/dedication}
+\include{Abstract/abstract}
+
+% ****************** TOC, List of Figures and List of tables *******************
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+% ******************************* Main Matter **********************************
+
+\mainmatter
+
+\include{Introduction/introduction}
+\include{Chapter1/chapter1}
+\include{Chapter2/chapter2}
+\include{Chapter3/chapter3}
+\include{Chapter4/chapter4}
+\include{Chapter5/chapter5}
+\include{Conclusion/conclusion}
+
+% ******************************* Back Matter **********************************
+
+\backmatter
+
+% ******************************* Bibliography *********************************
+
+\cleardoublepage
+
+\bibliographystyle{plain}
+% \refstepcounter{chapter}
+% \addcontentsline{toc}{chapter}{\bibname}
+\bibliography{Bibliography/bibliography}
+
+\end{document}
+
